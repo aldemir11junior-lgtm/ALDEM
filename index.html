@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alde Gestão Estratégica | Transformando dados em decisões estratégicas</title>
+  <meta name="description" content="Alde Gestão Estratégica: soluções inteligentes em gestão, análise de dados e automação para impulsionar o crescimento da sua empresa." />
+  <meta name="theme-color" content="#04152b" />
+  <meta property="og:title" content="Alde Gestão Estratégica" />
+  <meta property="og:description" content="Dados + estratégia = melhores decisões. Gestão, análise de dados e automação para a sua empresa." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Ícones reutilizáveis (sprite) -->
+  <svg width="1152" height="290" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-logo" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#1768d8" />
+        <stop offset="1" stop-color="#5cb0ff" />
+      </linearGradient>
+    </defs>
+    <symbol id="logo-mark" viewBox="0 0 56 60">
+      <rect x="0" y="34" width="1152" height="290" rx="2" fill="url(#g-logo)" />
+      <rect x="18" y="20" width="1152" height="290" rx="2" fill="url(#g-logo)" />
+      <rect x="36" y="2" width="1152" height="290" rx="2" fill="url(#g-logo)" />
+    </symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/><path d="M15 8h4v4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 21h18"/><rect x="5" y="12" width="3.5" height="7" rx="1"/><rect x="10.5" y="8" width="3.5" height="11" rx="1"/><rect x="16" y="4" width="3.5" height="15" rx="1"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-service-analysis" viewBox="0 0 64 64"><circle cx="27" cy="27" r="18"/><path d="M40 40 55 55"/><path d="M18 34v-8M26 34V19M34 34v-12"/></symbol>
+    <symbol id="i-service-automation" viewBox="0 0 64 64"><circle cx="32" cy="32" r="6"/><circle cx="21" cy="12" r="4"/><circle cx="51" cy="22" r="4"/><circle cx="48" cy="47" r="4"/><circle cx="18" cy="51" r="4"/><circle cx="8" cy="34" r="4"/><path d="m29 27-6-11M38 30l9-6M37 36l8 8M27 37l-7 10M26 33l-14 1"/></symbol>
+    <symbol id="i-service-sites" viewBox="0 0 64 64"><rect x="9" y="10" width="1152" height="290" rx="4"/><path d="M9 19h46"/><circle cx="15" cy="14.5" r="1"/><circle cx="21" cy="14.5" r="1"/><circle cx="27" cy="14.5" r="1"/></symbol>
+    <symbol id="i-service-system" viewBox="0 0 64 64"><rect x="17" y="6" width="1152" height="290" rx="5"/><path d="M23 15h18v10H23zM23 32h7v7h-7zM34 32h7v7h-7zM23 44h7v7h-7zM34 44h7v7h-7zM28 10h8"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#inicio" class="brand" aria-label="Alde Gestão Estratégica — início">
+        <img class="brand-logo" src="logo.png" alt="Aldem" width="1152" height="290" />
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#inicio" class="is-active">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a href="#contato" class="btn btn-outline header-cta">
+        <svg class="ico" aria-hidden="true"><use href="#i-user" /></svg>
+        Fale Conosco
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="ico icon-menu" aria-hidden="true"><use href="#i-menu" /></svg>
+        <svg class="ico icon-close" aria-hidden="true" style="display:none"><use href="#i-close" /></svg>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação celular" hidden>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-content fade-in">
+          <div class="eyebrow eyebrow-plain">Dados + Estratégia = Melhores decisões</div>
+          <h1>Transformando<br />dados em <span class="accent">decisões estratégicas.</span></h1>
+          <p class="hero-description">Soluções inteligentes em gestão, análise de dados e automação para impulsionar o crescimento da sua empresa.</p>
+          <div class="hero-actions">
+            <a href="#servicos" class="btn btn-primary">
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
+              Conheça nossos serviços
+            </a>
+            <a href="#sobre" class="link-underline">Saiba mais
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Notebook com dashboard (ilustração, dados fictícios) -->
+        <div class="device" aria-hidden="true">
+          <div class="tablet">
+            <div class="screen">
+              <div class="dash">
+                <div class="dash-title">Visão Geral <small>dados ilustrativos</small></div>
+
+                <div class="kpis">
+                  <div class="kpi"><span>Receita</span><strong>R$ 1.248.000</strong><em class="up">+12,5%</em></div>
+                  <div class="kpi"><span>Custos</span><strong>R$ 682.000</strong><em class="down">−3,2%</em></div>
+                  <div class="kpi"><span>Lucro Líquido</span><strong>R$ 566.000</strong><em class="up">+18,7%</em></div>
+                  <div class="kpi"><span>Produtividade</span><strong>92%</strong><em class="up">+6,4%</em></div>
+                </div>
+
+                <div class="dash-row row-a">
+                  <div class="panel">
+                    <h4>Evolução de Resultados</h4>
+                    <svg viewBox="0 0 200 70" preserveAspectRatio="none" class="chart">
+                      <defs>
+                        <linearGradient id="g-area" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#2b8cff" stop-opacity=".55" />
+                          <stop offset="1" stop-color="#2b8cff" stop-opacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 58 L20 52 L40 54 L60 46 L80 48 L100 40 L120 36 L140 38 L160 26 L180 20 L200 10 L200 70 L0 70 Z" fill="url(#g-area)" />
+                      <path d="M0 58 L20 52 L40 54 L60 46 L80 48 L100 40 L120 36 L140 38 L160 26 L180 20 L200 10" fill="none" stroke="#5cb0ff" stroke-width="1.6" />
+                    </svg>
+                  </div>
+                  <div class="panel">
+                    <h4>Distribuição de Custos</h4>
+                    <div class="donut-wrap">
+                      <svg viewBox="0 0 42 42" class="donut">
+                        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1b73e8" stroke-width="6" stroke-dasharray="40 60" stroke-dashoffset="25" />
+                        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#4aa3ff" stroke-width="6" stroke-dasharray="30 70" stroke-dashoffset="-15" />
+                        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#8cc8ff" stroke-width="6" stroke-dasharray="20 80" stroke-dashoffset="-45" />
+                        <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1d3f73" stroke-width="6" stroke-dasharray="10 90" stroke-dashoffset="-65" />
+                      </svg>
+                      <ul class="legend">
+                        <li><i style="background:#1b73e8"></i>Pessoal</li>
+                        <li><i style="background:#4aa3ff"></i>Operacional</li>
+                        <li><i style="background:#8cc8ff"></i>Logística</li>
+                        <li><i style="background:#1d3f73"></i>Outros</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dash-row row-b">
+                  <div class="panel">
+                    <h4>Desempenho por Área</h4>
+                    <div class="bars">
+                      <div><b style="height:72%"></b><span>Financeiro</span></div>
+                      <div><b style="height:58%"></b><span>Operacional</span></div>
+                      <div><b style="height:84%"></b><span>Comercial</span></div>
+                      <div><b style="height:68%"></b><span>RH</span></div>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <h4>Principais Indicadores</h4>
+                    <ul class="indicators">
+                      <li><span>Margem de Lucro</span><b>18,7% <i>↗</i></b></li>
+                      <li><span>Crescimento</span><b>12,5% <i>↗</i></b></li>
+                      <li><span>Eficiência</span><b>92% <i>↗</i></b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAIXA DE DIFERENCIAIS -->
+    <section class="features" aria-label="Diferenciais">
+      <div class="wrap features-grid">
+        <div class="feature">
+          <svg class="ico" aria-hidden="true"><use href="#i-trend" /></svg>
+          <div><h3>Relatórios Personalizados</h3><p>Informações claras e objetivas para a sua tomada de decisão.</p></div>
+        </div>
+        <div class="feature">
+          <svg class="ico" aria-hidden="true"><use href="#i-zap" /></svg>
+          <div><h3>Automação de Processos</h3><p>Mais eficiência, menos trabalho manual.</p></div>
+        </div>
+        <div class="feature">
+          <svg class="ico" aria-hidden="true"><use href="#i-shield" /></svg>
+          <div><h3>Suporte Especializado</h3><p>Acompanhamento próximo e consultoria sob medida.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow">A Alde Gestão Estratégica</div>
+          <h2>Mais que uma visão externa.<br />Uma parceria de verdade.</h2>
+          <p class="about-text">Acreditamos que uma boa estratégia começa por entender o que torna cada negócio único. Por isso, nosso ponto de partida é ouvir, conhecer e olhar para sua empresa de forma integrada.</p>
+          <p class="about-text">Com clareza, proximidade e foco na execução, ajudamos a transformar grandes objetivos em próximos passos concretos.</p>
+          <a href="#contato" class="link-underline mt-6">Conheça um novo jeito de avançar
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+          </a>
+        </div>
+        <div class="about-points">
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>O seu contexto vem primeiro</h3><p>Uma abordagem que considera a realidade, os desafios e as ambições da sua empresa.</p></div>
+          </div>
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>Estratégia que sai do papel</h3><p>Direcionamento prático para conectar planejamento, rotina e tomada de decisão.</p></div>
+          </div>
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>Construímos junto com você</h3><p>Proximidade e colaboração em cada etapa, respeitando a identidade do seu negócio.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Nossos serviços</div>
+            <h2>Seu negócio tem potencial.<br />Nós ajudamos a dar direção.</h2>
+          </div>
+          <p class="section-intro">Cada empresa tem seu momento. Nossas soluções conectam as necessidades do presente às oportunidades do futuro.</p>
+        </div>
+
+        <div class="service-grid">
+          <a class="service-option" href="#analise-de-dados">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-analysis" /></svg></span>
+            <span>Análise de dados</span>
+          </a>
+          <a class="service-option" href="#automacao">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-automation" /></svg></span>
+            <span>Automação</span>
+          </a>
+          <a class="service-option" href="#sites">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-sites" /></svg></span>
+            <span>Sites</span>
+          </a>
+          <a class="service-option" href="#sistema-interno">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-system" /></svg></span>
+            <span>Sistema interno</span>
+          </a>
+        </div>
+
+        <article id="analise-de-dados" class="service-block">
+          <header class="service-detail-hero">
+        <div class="eyebrow">Análise de dados</div>
+        <h3>Decisões melhores começam com dados claros.</h3>
+        <p>Organizamos as informações do seu negócio em indicadores e relatórios objetivos para você entender o cenário, identificar oportunidades e decidir com mais segurança.</p>
+      </header>
+          <div class="service-detail-content">
+        <section class="service-detail-card">
+          <h4>O que podemos fazer</h4>
+          <ul>
+            <li>Consolidar informações que hoje estão espalhadas</li>
+            <li>Criar painéis e relatórios sob medida para sua operação</li>
+            <li>Acompanhar indicadores financeiros, comerciais e operacionais</li>
+            <li>Identificar tendências, gargalos e oportunidades</li>
+          </ul>
+        </section>
+        <section class="service-detail-card">
+          <h4>Como funciona</h4>
+          <p>Começamos entendendo suas metas e as fontes de informação disponíveis. Em seguida, estruturamos os dados e definimos indicadores úteis para a rotina. O resultado é apresentado de forma visual e acompanhado para apoiar decisões contínuas.</p>
+        </section>
+      </div>
+          <div class="service-detail-cta">
+            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
+            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
+          </div>
+        </article>
+
+        <article id="automacao" class="service-block">
+          <header class="service-detail-hero">
+        <div class="eyebrow">Automação</div>
+        <h3>Menos tarefas repetitivas. Mais tempo para avançar.</h3>
+        <p>Automatizamos atividades e fluxos de trabalho para reduzir erros, retrabalho e etapas manuais, com soluções alinhadas à realidade da sua equipe.</p>
+      </header>
+          <div class="service-detail-content">
+        <section class="service-detail-card">
+          <h4>O que podemos fazer</h4>
+          <ul>
+            <li>Mapear processos manuais e pontos de retrabalho</li>
+            <li>Automatizar tarefas recorrentes e transferências de dados</li>
+            <li>Conectar ferramentas utilizadas pela equipe</li>
+            <li>Criar fluxos mais consistentes e fáceis de acompanhar</li>
+          </ul>
+        </section>
+        <section class="service-detail-card">
+          <h4>Como funciona</h4>
+          <p>Analisamos o processo atual junto com quem executa o trabalho. Depois priorizamos melhorias, implementamos a automação adequada e validamos o fluxo com a equipe, buscando uma operação simples, confiável e sustentável.</p>
+        </section>
+      </div>
+          <div class="service-detail-cta">
+            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
+            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
+          </div>
+        </article>
+
+        <article id="sites" class="service-block">
+          <header class="service-detail-hero">
+        <div class="eyebrow">Sites</div>
+        <h3>Uma presença digital que representa bem o seu negócio.</h3>
+        <p>Criamos sites claros, responsivos e alinhados à identidade da sua empresa para apresentar seus serviços, transmitir confiança e facilitar o contato com clientes.</p>
+      </header>
+          <div class="service-detail-content">
+        <section class="service-detail-card">
+          <h4>O que podemos fazer</h4>
+          <ul>
+            <li>Desenvolver páginas institucionais e landing pages</li>
+            <li>Organizar conteúdo para uma navegação simples</li>
+            <li>Adaptar a experiência para celulares e computadores</li>
+            <li>Integrar chamadas para contato e apresentação dos serviços</li>
+          </ul>
+        </section>
+        <section class="service-detail-card">
+          <h4>Como funciona</h4>
+          <p>Alinhamos os objetivos do site, o público e as informações essenciais da empresa. A partir disso, montamos a estrutura e o visual, revisamos a experiência em diferentes telas e preparamos a publicação conforme o ambiente escolhido.</p>
+        </section>
+      </div>
+          <div class="service-detail-cta">
+            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
+            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
+          </div>
+        </article>
+
+        <article id="sistema-interno" class="service-block">
+          <header class="service-detail-hero">
+        <div class="eyebrow">Sistema interno</div>
+        <h3>Ferramentas feitas para a rotina real da sua empresa.</h3>
+        <p>Desenvolvemos sistemas internos para centralizar informações, organizar fluxos e dar mais visibilidade e controle às atividades do dia a dia.</p>
+      </header>
+          <div class="service-detail-content">
+        <section class="service-detail-card">
+          <h4>O que podemos fazer</h4>
+          <ul>
+            <li>Centralizar dados e rotinas em uma ferramenta própria</li>
+            <li>Organizar cadastros, solicitações e aprovações</li>
+            <li>Acompanhar tarefas, etapas e indicadores operacionais</li>
+            <li>Adaptar funcionalidades aos processos da equipe</li>
+          </ul>
+        </section>
+        <section class="service-detail-card">
+          <h4>Como funciona</h4>
+          <p>Entendemos os fluxos, usuários e necessidades de segurança da operação. Definimos um escopo claro, construímos a solução em etapas e validamos com a equipe para garantir que o sistema seja útil, prático e adequado ao trabalho.</p>
+        </section>
+      </div>
+          <div class="service-detail-cta">
+            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
+            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESULTADOS / METODOLOGIA -->
+    <section id="resultados" class="section results">
+      <div class="wrap">
+        <div class="eyebrow">Resultados</div>
+        <h2>Do cenário atual<br />ao seu próximo capítulo.</h2>
+        <div class="process-grid">
+          <div class="step"><span>01 /</span><h3>Diagnosticar</h3><p>Conhecer seu negócio, ouvir seus desafios e mapear o cenário atual com base em dados.</p></div>
+          <div class="step"><span>02 /</span><h3>Estruturar</h3><p>Definir objetivos, indicadores e prioridades para construir um plano de ação.</p></div>
+          <div class="step"><span>03 /</span><h3>Automatizar</h3><p>Conectar pessoas, processos e informações para colocar a estratégia em movimento.</p></div>
+          <div class="step"><span>04 /</span><h3>Evoluir</h3><p>Acompanhar resultados, ajustar o caminho e desenvolver novas possibilidades.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow">Fale Conosco</div>
+          <h2>O próximo passo começa<br />com uma boa conversa.</h2>
+          <p class="about-text">Conte um pouco sobre sua empresa e o momento que vocês estão vivendo. Vamos pensar no futuro juntos.</p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label>Seu nome<input name="nome" placeholder="Como podemos chamar você?" required autocomplete="name" /></label>
+          <label>Seu e-mail<input name="email" type="email" placeholder="voce@empresa.com.br" required autocomplete="email" /></label>
+          <label class="form-wide">Empresa<input name="empresa" placeholder="Qual é o nome da sua empresa?" autocomplete="organization" /></label>
+          <label class="form-wide">Como podemos ajudar?<textarea name="mensagem" placeholder="Conte um pouco sobre seu desafio…" required></textarea></label>
+          <button type="submit" class="btn btn-primary form-wide">
+            Iniciar uma conversa
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
+          </button>
+          <p class="form-wide form-status" id="form-status" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="#inicio" class="brand" aria-label="Alde Gestão Estratégica — início">
+        <img class="brand-logo" src="logo.png" alt="Aldem" width="1152" height="290" />
+      </a>
+      <p>© 2026 Alde Gestão Estratégica. Todos os direitos reservados.</p>
+      <a href="#inicio" class="footer-top">Voltar ao topo
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
