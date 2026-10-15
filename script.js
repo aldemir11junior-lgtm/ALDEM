@@ -1,4 +1,4 @@
-// Alde Gestão Estratégica — interações da página
+// Aldem Tecnologia & Estratégias — interações da página
 
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
