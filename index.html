@@ -4,6 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aldem Gestão Estratégica</title>
+  <script>
+    (function () {
+      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (!isStandalone) return;
+
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      function resetScrollPosition() {
+        if (window.location.hash) return;
+        var root = document.documentElement;
+        var body = document.body;
+        var rootBehavior = root.style.scrollBehavior;
+        var bodyBehavior = body.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        body.style.scrollBehavior = 'auto';
+        root.scrollTop = 0;
+        body.scrollTop = 0;
+        root.style.scrollBehavior = rootBehavior;
+        body.style.scrollBehavior = bodyBehavior;
+      }
+
+      window.addEventListener('pageshow', function () {
+        resetScrollPosition();
+      });
+    })();
+  </script>
   <meta name="description" content="Aldem Gestão Estratégica: soluções inteligentes em análise de dados, automação e estratégia para impulsionar o crescimento da sua empresa." />
   <meta name="theme-color" content="#04152b" />
   <meta property="og:title" content="Aldem Gestão Estratégica" />
