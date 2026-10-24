@@ -26,6 +26,8 @@
 
       window.addEventListener('pageshow', function () {
         resetScrollPosition();
+        window.requestAnimationFrame(resetScrollPosition);
+        window.setTimeout(resetScrollPosition, 100);
       });
     })();
   </script>
@@ -77,17 +79,19 @@
     <symbol id="i-service-system" viewBox="0 0 64 64"><rect x="17" y="6" width="1152" height="290" rx="5"/><path d="M23 15h18v10H23zM23 32h7v7h-7zM34 32h7v7h-7zM23 44h7v7h-7zM34 44h7v7h-7zM28 10h8"/></symbol>
   </svg>
 
+  <div id="topo" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="#inicio" class="brand" aria-label="Aldem Gestão Estratégica — início">
+      <a href="#topo" class="brand" aria-label="Aldem Gestão Estratégica — início">
         <img class="brand-logo" src="logo.png" alt="Aldem Gestão Estratégica" width="1156" height="297" />
       </a>
 
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#inicio" class="is-active">Início</a>
-        <a href="#sobre">Sobre</a>
+        <a href="#topo" class="is-active">Início</a>
+        <a href="#desafios">Desafios</a>
         <a href="#servicos">Serviços</a>
         <a href="#resultados">Resultados</a>
+        <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
 
@@ -104,10 +108,11 @@
     </div>
 
     <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação celular" hidden>
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#topo">Início</a>
+      <a href="#desafios">Desafios</a>
       <a href="#servicos">Serviços</a>
       <a href="#resultados">Resultados</a>
+      <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
     </nav>
   </header>
@@ -221,6 +226,85 @@
       </div>
     </section>
 
+    <!-- DESAFIOS DA GESTÃO -->
+    <section id="desafios" class="section challenges">
+      <div class="wrap">
+        <div class="challenges-heading">
+          <div class="eyebrow">A rotina da gestão</div>
+          <h2>Alguma dessas situações faz parte do seu dia?</h2>
+          <p>Quando informações e processos não estão conectados, a gestão perde tempo e clareza para decidir.</p>
+        </div>
+        <div class="challenges-grid">
+          <article class="challenge-card">
+            <span class="challenge-number">01</span>
+            <h3>Decisões no escuro</h3>
+            <p>Os números chegam incompletos ou atrasados, e decidir vira uma aposta.</p>
+          </article>
+          <article class="challenge-card">
+            <span class="challenge-number">02</span>
+            <h3>Relatórios esquecidos</h3>
+            <p>Há planilhas e dashboards, mas falta transformar informação em próximos passos.</p>
+          </article>
+          <article class="challenge-card">
+            <span class="challenge-number">03</span>
+            <h3>Tarefas que se repetem</h3>
+            <p>A equipe copia, confere e atualiza dados manualmente, todos os dias.</p>
+          </article>
+          <article class="challenge-card">
+            <span class="challenge-number">04</span>
+            <h3>Cada área, um número</h3>
+            <p>Informações desencontradas dificultam enxergar o negócio como um todo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Nossos serviços</div>
+            <h2>Seu negócio tem potencial.<br />Nós ajudamos a dar direção.</h2>
+          </div>
+          <p class="section-intro">Cada empresa tem seu momento. Nossas soluções conectam as necessidades do presente às oportunidades do futuro.</p>
+        </div>
+
+        <div class="service-grid">
+          <a class="service-option" href="analise-de-dados.html">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-analysis" /></svg></span>
+            <span>Análise de dados</span>
+          </a>
+          <a class="service-option" href="automacao.html">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-automation" /></svg></span>
+            <span>Automação</span>
+          </a>
+          <a class="service-option" href="sites.html">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-sites" /></svg></span>
+            <span>Sites</span>
+          </a>
+          <a class="service-option" href="sistema-interno.html">
+            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-system" /></svg></span>
+            <span>Sistema interno</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS / METODOLOGIA -->
+    <section id="resultados" class="section results">
+      <div class="wrap">
+        <div class="eyebrow">Resultados</div>
+        <h2>Do cenário atual<br />ao seu próximo capítulo.</h2>
+        <div class="process-grid">
+          <div class="step"><span>01 /</span><h3>Diagnosticar</h3><p>Conhecer seu negócio, ouvir seus desafios e mapear o cenário atual com base em dados.</p></div>
+          <div class="step"><span>02 /</span><h3>Estruturar</h3><p>Definir objetivos, indicadores e prioridades para construir um plano de ação.</p></div>
+          <div class="step"><span>03 /</span><h3>Automatizar</h3><p>Conectar pessoas, processos e informações para colocar a estratégia em movimento.</p></div>
+          <div class="step"><span>04 /</span><h3>Evoluir</h3><p>Acompanhar resultados, ajustar o caminho e desenvolver novas possibilidades.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- SOBRE -->
     <section id="sobre" class="section about">
       <div class="wrap about-grid">
@@ -250,160 +334,6 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="section">
-      <div class="wrap">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">Nossos serviços</div>
-            <h2>Seu negócio tem potencial.<br />Nós ajudamos a dar direção.</h2>
-          </div>
-          <p class="section-intro">Cada empresa tem seu momento. Nossas soluções conectam as necessidades do presente às oportunidades do futuro.</p>
-        </div>
-
-        <div class="service-grid">
-          <a class="service-option" href="#analise-de-dados">
-            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-analysis" /></svg></span>
-            <span>Análise de dados</span>
-          </a>
-          <a class="service-option" href="#automacao">
-            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-automation" /></svg></span>
-            <span>Automação</span>
-          </a>
-          <a class="service-option" href="#sites">
-            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-sites" /></svg></span>
-            <span>Sites</span>
-          </a>
-          <a class="service-option" href="#sistema-interno">
-            <span class="service-icon-frame"><svg class="service-svg" aria-hidden="true"><use href="#i-service-system" /></svg></span>
-            <span>Sistema interno</span>
-          </a>
-        </div>
-
-        <article id="analise-de-dados" class="service-block">
-          <header class="service-detail-hero">
-        <div class="eyebrow">Análise de dados</div>
-        <h3>Decisões melhores começam com dados claros.</h3>
-        <p>Organizamos as informações do seu negócio em indicadores e relatórios objetivos para você entender o cenário, identificar oportunidades e decidir com mais segurança.</p>
-      </header>
-          <div class="service-detail-content">
-        <section class="service-detail-card">
-          <h4>O que podemos fazer</h4>
-          <ul>
-            <li>Consolidar informações que hoje estão espalhadas</li>
-            <li>Criar painéis e relatórios sob medida para sua operação</li>
-            <li>Acompanhar indicadores financeiros, comerciais e operacionais</li>
-            <li>Identificar tendências, gargalos e oportunidades</li>
-          </ul>
-        </section>
-        <section class="service-detail-card">
-          <h4>Como funciona</h4>
-          <p>Começamos entendendo suas metas e as fontes de informação disponíveis. Em seguida, estruturamos os dados e definimos indicadores úteis para a rotina. O resultado é apresentado de forma visual e acompanhado para apoiar decisões contínuas.</p>
-        </section>
-      </div>
-          <div class="service-detail-cta">
-            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
-            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
-          </div>
-        </article>
-
-        <article id="automacao" class="service-block">
-          <header class="service-detail-hero">
-        <div class="eyebrow">Automação</div>
-        <h3>Menos tarefas repetitivas. Mais tempo para avançar.</h3>
-        <p>Automatizamos atividades e fluxos de trabalho para reduzir erros, retrabalho e etapas manuais, com soluções alinhadas à realidade da sua equipe.</p>
-      </header>
-          <div class="service-detail-content">
-        <section class="service-detail-card">
-          <h4>O que podemos fazer</h4>
-          <ul>
-            <li>Mapear processos manuais e pontos de retrabalho</li>
-            <li>Automatizar tarefas recorrentes e transferências de dados</li>
-            <li>Conectar ferramentas utilizadas pela equipe</li>
-            <li>Criar fluxos mais consistentes e fáceis de acompanhar</li>
-          </ul>
-        </section>
-        <section class="service-detail-card">
-          <h4>Como funciona</h4>
-          <p>Analisamos o processo atual junto com quem executa o trabalho. Depois priorizamos melhorias, implementamos a automação adequada e validamos o fluxo com a equipe, buscando uma operação simples, confiável e sustentável.</p>
-        </section>
-      </div>
-          <div class="service-detail-cta">
-            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
-            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
-          </div>
-        </article>
-
-        <article id="sites" class="service-block">
-          <header class="service-detail-hero">
-        <div class="eyebrow">Sites</div>
-        <h3>Uma presença digital que representa bem o seu negócio.</h3>
-        <p>Criamos sites claros, responsivos e alinhados à identidade da sua empresa para apresentar seus serviços, transmitir confiança e facilitar o contato com clientes.</p>
-      </header>
-          <div class="service-detail-content">
-        <section class="service-detail-card">
-          <h4>O que podemos fazer</h4>
-          <ul>
-            <li>Desenvolver páginas institucionais e landing pages</li>
-            <li>Organizar conteúdo para uma navegação simples</li>
-            <li>Adaptar a experiência para celulares e computadores</li>
-            <li>Integrar chamadas para contato e apresentação dos serviços</li>
-          </ul>
-        </section>
-        <section class="service-detail-card">
-          <h4>Como funciona</h4>
-          <p>Alinhamos os objetivos do site, o público e as informações essenciais da empresa. A partir disso, montamos a estrutura e o visual, revisamos a experiência em diferentes telas e preparamos a publicação conforme o ambiente escolhido.</p>
-        </section>
-      </div>
-          <div class="service-detail-cta">
-            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
-            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
-          </div>
-        </article>
-
-        <article id="sistema-interno" class="service-block">
-          <header class="service-detail-hero">
-        <div class="eyebrow">Sistema interno</div>
-        <h3>Ferramentas feitas para a rotina real da sua empresa.</h3>
-        <p>Desenvolvemos sistemas internos para centralizar informações, organizar fluxos e dar mais visibilidade e controle às atividades do dia a dia.</p>
-      </header>
-          <div class="service-detail-content">
-        <section class="service-detail-card">
-          <h4>O que podemos fazer</h4>
-          <ul>
-            <li>Centralizar dados e rotinas em uma ferramenta própria</li>
-            <li>Organizar cadastros, solicitações e aprovações</li>
-            <li>Acompanhar tarefas, etapas e indicadores operacionais</li>
-            <li>Adaptar funcionalidades aos processos da equipe</li>
-          </ul>
-        </section>
-        <section class="service-detail-card">
-          <h4>Como funciona</h4>
-          <p>Entendemos os fluxos, usuários e necessidades de segurança da operação. Definimos um escopo claro, construímos a solução em etapas e validamos com a equipe para garantir que o sistema seja útil, prático e adequado ao trabalho.</p>
-        </section>
-      </div>
-          <div class="service-detail-cta">
-            <a href="#contato" class="btn btn-primary">Vamos conversar <span aria-hidden="true">↗</span></a>
-            <a href="#servicos" class="link-underline">Voltar aos serviços</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- RESULTADOS / METODOLOGIA -->
-    <section id="resultados" class="section results">
-      <div class="wrap">
-        <div class="eyebrow">Resultados</div>
-        <h2>Do cenário atual<br />ao seu próximo capítulo.</h2>
-        <div class="process-grid">
-          <div class="step"><span>01 /</span><h3>Diagnosticar</h3><p>Conhecer seu negócio, ouvir seus desafios e mapear o cenário atual com base em dados.</p></div>
-          <div class="step"><span>02 /</span><h3>Estruturar</h3><p>Definir objetivos, indicadores e prioridades para construir um plano de ação.</p></div>
-          <div class="step"><span>03 /</span><h3>Automatizar</h3><p>Conectar pessoas, processos e informações para colocar a estratégia em movimento.</p></div>
-          <div class="step"><span>04 /</span><h3>Evoluir</h3><p>Acompanhar resultados, ajustar o caminho e desenvolver novas possibilidades.</p></div>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTATO -->
     <section id="contato" class="section contact">
       <div class="wrap contact-grid">
@@ -413,8 +343,6 @@
           <p class="about-text">Conte um pouco sobre sua empresa e o momento que vocês estão vivendo. Vamos pensar no futuro juntos.</p>
         </div>
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/mljjdrqq" method="POST">
-          <div class="form-wide form-status success" data-fs-success role="status" aria-live="polite">Mensagem enviada com sucesso! Em breve entraremos em contato.</div>
-          <div class="form-wide form-status error" data-fs-error role="alert" aria-live="assertive"></div>
           <label>Seu nome<input name="nome" data-fs-field placeholder="Como podemos chamar você?" required autocomplete="name" /><span class="form-field-error" data-fs-error="nome"></span></label>
           <label>Seu e-mail<input name="email" type="email" data-fs-field placeholder="voce@empresa.com.br" required autocomplete="email" /><span class="form-field-error" data-fs-error="email"></span></label>
           <label class="form-wide">Empresa<input name="empresa" data-fs-field placeholder="Qual é o nome da sua empresa?" autocomplete="organization" /><span class="form-field-error" data-fs-error="empresa"></span></label>
@@ -423,6 +351,8 @@
             Iniciar uma conversa
             <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
           </button>
+          <div class="form-wide form-status success" data-fs-success role="status" aria-live="polite">Mensagem enviada com sucesso! Em breve entraremos em contato.</div>
+          <div class="form-wide form-status error" data-fs-error role="alert" aria-live="assertive"></div>
           <p class="form-wide form-note">Os dados enviados serão usados para responder ao seu contato.</p>
         </form>
       </div>
@@ -431,11 +361,11 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <a href="#inicio" class="brand" aria-label="Aldem Gestão Estratégica — início">
+      <a href="#topo" class="brand" aria-label="Aldem Gestão Estratégica — início">
         <img class="brand-logo" src="logo.png" alt="Aldem Gestão Estratégica" width="1156" height="297" />
       </a>
       <p>© 2026 Aldem Gestão Estratégica. Todos os direitos reservados.</p>
-      <a href="#inicio" class="footer-top">Voltar ao topo
+      <a href="#topo" class="footer-top">Voltar ao topo
         <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
       </a>
     </div>
@@ -445,9 +375,23 @@
     window.formspree = window.formspree || function () {
       (window.formspree.q = window.formspree.q || []).push(arguments);
     };
+    var successMessageTimer;
     window.formspree('initForm', {
       formElement: '#contact-form',
       formId: 'mljjdrqq',
+      onSubmit: function (context) {
+        window.clearTimeout(successMessageTimer);
+        var successMessage = context.form.querySelector('[data-fs-success]');
+        if (successMessage) successMessage.removeAttribute('data-fs-active');
+      },
+      onSuccess: function (context) {
+        var successMessage = context.form.querySelector('[data-fs-success]');
+        if (!successMessage) return;
+        context.form.reset();
+        successMessageTimer = window.setTimeout(function () {
+          successMessage.removeAttribute('data-fs-active');
+        }, 5000);
+      },
       onError: function (context) {
         var errorMessage = context.form.querySelector('[data-fs-error=""]');
         if (!errorMessage) return;

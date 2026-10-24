@@ -39,7 +39,7 @@ if (menuToggle && mobileMenu) {
 
 // ---------- Destaque do item ativo no menu (conforme a rolagem) ----------
 const navLinks = document.querySelectorAll('.nav-links a');
-const secoes = ['inicio', 'sobre', 'servicos', 'resultados', 'contato']
+const secoes = ['inicio', 'desafios', 'servicos', 'resultados', 'sobre', 'contato']
   .map(function (id) { return document.getElementById(id); })
   .filter(Boolean);
 
@@ -79,3 +79,17 @@ if (secoes.length) {
     handleScrollFallback();
   }
 }
+
+// ---------- Ao recarregar, volta para o início ----------
+(function () {
+  var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var isReload = nav ? nav.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+  if (!isReload || !document.querySelector('.hero')) return;
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
+  window.addEventListener('load', function () { window.scrollTo(0, 0); });
+})();
