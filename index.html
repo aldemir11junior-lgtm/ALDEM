@@ -445,7 +445,22 @@
     window.formspree = window.formspree || function () {
       (window.formspree.q = window.formspree.q || []).push(arguments);
     };
-    window.formspree('initForm', { formElement: '#contact-form', formId: 'mljjdrqq' });
+    window.formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'mljjdrqq',
+      onError: function (context) {
+        var errorMessage = context.form.querySelector('[data-fs-error=""]');
+        if (!errorMessage) return;
+        errorMessage.textContent = 'O serviço não aceitou a mensagem. Verifique os campos e tente novamente.';
+        errorMessage.setAttribute('data-fs-active', '');
+      },
+      onFailure: function (context) {
+        var errorMessage = context.form.querySelector('[data-fs-error=""]');
+        if (!errorMessage) return;
+        errorMessage.textContent = 'Não foi possível conectar ao serviço de envio. Tente novamente mais tarde.';
+        errorMessage.setAttribute('data-fs-active', '');
+      }
+    });
   </script>
   <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script src="script.js"></script>
