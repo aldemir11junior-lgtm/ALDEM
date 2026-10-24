@@ -412,16 +412,18 @@
           <h2>O próximo passo começa<br />com uma boa conversa.</h2>
           <p class="about-text">Conte um pouco sobre sua empresa e o momento que vocês estão vivendo. Vamos pensar no futuro juntos.</p>
         </div>
-        <form class="contact-form" id="contact-form">
-          <label>Seu nome<input name="nome" placeholder="Como podemos chamar você?" required autocomplete="name" /></label>
-          <label>Seu e-mail<input name="email" type="email" placeholder="voce@empresa.com.br" required autocomplete="email" /></label>
-          <label class="form-wide">Empresa<input name="empresa" placeholder="Qual é o nome da sua empresa?" autocomplete="organization" /></label>
-          <label class="form-wide">Como podemos ajudar?<textarea name="mensagem" placeholder="Conte um pouco sobre seu desafio…" required></textarea></label>
-          <button type="submit" class="btn btn-primary form-wide">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mljjdrqq" method="POST">
+          <div class="form-wide form-status success" data-fs-success role="status" aria-live="polite">Mensagem enviada com sucesso! Em breve entraremos em contato.</div>
+          <div class="form-wide form-status error" data-fs-error role="alert" aria-live="assertive"></div>
+          <label>Seu nome<input name="nome" data-fs-field placeholder="Como podemos chamar você?" required autocomplete="name" /><span class="form-field-error" data-fs-error="nome"></span></label>
+          <label>Seu e-mail<input name="email" type="email" data-fs-field placeholder="voce@empresa.com.br" required autocomplete="email" /><span class="form-field-error" data-fs-error="email"></span></label>
+          <label class="form-wide">Empresa<input name="empresa" data-fs-field placeholder="Qual é o nome da sua empresa?" autocomplete="organization" /><span class="form-field-error" data-fs-error="empresa"></span></label>
+          <label class="form-wide">Como podemos ajudar?<textarea name="mensagem" data-fs-field placeholder="Conte um pouco sobre seu desafio…" required></textarea><span class="form-field-error" data-fs-error="mensagem"></span></label>
+          <button type="submit" class="btn btn-primary form-wide" data-fs-submit-btn>
             Iniciar uma conversa
             <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
           </button>
-          <p class="form-wide form-status" id="form-status" role="status" hidden></p>
+          <p class="form-wide form-note">Os dados enviados serão usados para responder ao seu contato.</p>
         </form>
       </div>
     </section>
@@ -439,6 +441,13 @@
     </div>
   </footer>
 
+  <script>
+    window.formspree = window.formspree || function () {
+      (window.formspree.q = window.formspree.q || []).push(arguments);
+    };
+    window.formspree('initForm', { formElement: '#contact-form', formId: 'mljjdrqq' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script src="script.js"></script>
 </body>
 </html>

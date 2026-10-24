@@ -323,9 +323,18 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.14);
 }
 .form-wide { grid-column: 1 / -1; }
+.form-field-error { color: #ffb0bf; font-size: 12px; line-height: 1.4; }
+.form-note { color: var(--muted); font-size: 12px; line-height: 1.5; }
 .form-status { font-size: 13.5px; line-height: 1.7; color: var(--primary-light); }
 .form-status.success { color: #8af3be; }
 .form-status.error { color: #ffb0bf; }
+.contact-form > [data-fs-success],
+.contact-form > [data-fs-error],
+.contact-form [data-fs-error]:not([data-fs-active]) { display: none; }
+.contact-form > [data-fs-success][data-fs-active],
+.contact-form > [data-fs-error][data-fs-active],
+.contact-form [data-fs-error][data-fs-active] { display: block; }
+.contact-form [data-fs-field][aria-invalid="true"] { border-color: rgba(255, 107, 129, 0.95); }
 button:disabled { opacity: 0.8; cursor: wait; }
 
 /* Rodapé */
