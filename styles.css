@@ -491,6 +491,13 @@ button:disabled { opacity: 0.8; cursor: wait; }
 
 /* Logo */
 .brand-logo { height: 38px; width: auto; display: block; }
+.site-header .brand-logo { transition: transform 0.2s, filter 0.2s; }
+.site-header .brand:hover .brand-logo,
+.site-header .brand:focus-visible .brand-logo {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 10px rgba(43, 140, 255, 0.55));
+}
+@media (prefers-reduced-motion: reduce) { .site-header .brand-logo { transition: none; } }
 .site-footer .brand-logo { height: 32px; }
 @media (max-width: 640px) { .brand-logo { height: 34px; } }
 
