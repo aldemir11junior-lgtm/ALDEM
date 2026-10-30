@@ -209,12 +209,12 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 /* Exemplo de landing page no dashboard */
 .lp-view { display: flex; flex-direction: column; }
 .lp { flex: 1; display: flex; flex-direction: column; border: 1px solid rgba(120, 170, 255, 0.2); border-radius: 0.7em; overflow: hidden; background: rgba(4, 21, 43, 0.6); }
-.lp-bar { display: flex; align-items: center; gap: 1em; padding: 0.6em 0.9em; background: rgba(23, 80, 160, 0.28); border-bottom: 1px solid rgba(120, 170, 255, 0.15); }
+.lp-bar { display: flex; align-items: center; gap: 1em; padding: 0.45em 0.9em; background: rgba(23, 80, 160, 0.28); border-bottom: 1px solid rgba(120, 170, 255, 0.15); }
 .lp-dots { display: flex; gap: 0.35em; }
 .lp-dots i { width: 0.65em; height: 0.65em; border-radius: 50%; background: rgba(140, 200, 255, 0.35); }
 .lp-url { flex: 1; max-width: 22em; padding: 0.3em 0.9em; font-size: 0.8em; color: #8fa9cc; background: rgba(4, 21, 43, 0.6); border-radius: 999px; }
 .lp-bar small { margin-left: auto; font-size: 0.65em; color: #6f8bb0; }
-.lp-page { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 0.9em; padding: 0.8em 1.2em 1em; }
+.lp-page { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 0.6em; padding: 0.6em 1.2em 0.8em; }
 .lp-nav { display: flex; align-items: center; justify-content: space-between; }
 .lp-logo { display: flex; align-items: center; gap: 0.5em; font-size: 1em; font-weight: 700; }
 .lp-logo i { width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--primary-strong)); }
@@ -224,18 +224,18 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 .lp-btn-ghost { background: transparent; border: 1px solid rgba(140, 200, 255, 0.4); box-shadow: none; color: #dbe7f7; }
 .lp-hero { text-align: center; }
 .lp-tag { display: inline-block; padding: 0.25em 0.9em; border-radius: 999px; font-size: 0.7em; color: var(--primary-light); background: rgba(43, 140, 255, 0.14); border: 1px solid rgba(120, 170, 255, 0.25); }
-.lp-hero h5 { max-width: 15em; margin: 0.7em auto 0; font-size: 1.9em; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
-.lp-hero p { max-width: 30em; margin: 0.6em auto 0; font-size: 0.85em; line-height: 1.6; color: #a9bdd6; }
-.lp-actions { display: flex; justify-content: center; gap: 0.8em; margin-top: 1em; }
+.lp-hero h5 { max-width: 30em; margin: 0.5em auto 0; font-size: 1.4em; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
+.lp-hero p { max-width: 30em; margin: 0.4em auto 0; font-size: 0.85em; line-height: 1.6; color: #a9bdd6; }
+.lp-actions { display: flex; justify-content: center; gap: 0.8em; margin-top: 0.7em; }
 .lp-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid rgba(120, 170, 255, 0.16); }
-.lp-stats div { padding: 0.8em 0; text-align: center; }
+.lp-stats div { padding: 0.5em 0; text-align: center; }
 .lp-stats div + div { border-left: 1px solid rgba(120, 170, 255, 0.16); }
-.lp-stats b { display: block; font-size: 1.5em; font-weight: 700; color: var(--primary-light); }
+.lp-stats b { display: block; font-size: 1.35em; font-weight: 700; color: var(--primary-light); }
 .lp-stats span { font-size: 0.72em; color: #8fa9cc; }
 .lp-bottom { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.8em; }
-.lp-quote, .lp-form { padding: 0.9em; border-radius: 0.6em; background: rgba(23, 80, 160, 0.25); border: 1px solid rgba(120, 170, 255, 0.16); }
+.lp-quote, .lp-form { padding: 0.7em; border-radius: 0.6em; background: rgba(23, 80, 160, 0.25); border: 1px solid rgba(120, 170, 255, 0.16); }
 .lp-quote p { font-size: 0.85em; line-height: 1.5; font-style: italic; color: #dbe7f7; }
-.lp-person { display: flex; align-items: center; gap: 0.6em; margin-top: 0.7em; font-size: 0.72em; color: #8fa9cc; }
+.lp-person { display: flex; align-items: center; gap: 0.6em; margin-top: 0.5em; font-size: 0.72em; color: #8fa9cc; }
 .lp-person i { width: 2em; height: 2em; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--primary-strong)); flex-shrink: 0; }
 .lp-person b { display: block; color: #fff; font-weight: 600; }
 .lp-form { display: flex; flex-direction: column; gap: 0.5em; }
