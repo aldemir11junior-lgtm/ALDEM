@@ -39,7 +39,7 @@ if (menuToggle && mobileMenu) {
 
 // ---------- Destaque do item ativo no menu (conforme a rolagem) ----------
 const navLinks = document.querySelectorAll('.nav-links a');
-const secoes = ['inicio', 'desafios', 'servicos', 'resultados', 'sobre', 'contato']
+const secoes = ['inicio', 'desafios', 'servicos', 'como-trabalhamos', 'sobre']
   .map(function (id) { return document.getElementById(id); })
   .filter(Boolean);
 
@@ -79,6 +79,59 @@ if (secoes.length) {
     handleScrollFallback();
   }
 }
+
+// ---------- Dashboard do topo: alterna Dados ⇄ Landing page (8 s cada) ----------
+(function () {
+  var views = document.querySelectorAll('.dash-view');
+  if (views.length < 2) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var atual = 0;
+
+  function duracao(view) {
+    return Number(view.getAttribute('data-duration')) || 8000;
+  }
+
+  function agendar() {
+    setTimeout(trocar, duracao(views[atual]));
+  }
+
+  function trocar() {
+    if (document.hidden) { agendar(); return; }
+    var saindo = views[atual];
+    atual = (atual + 1) % views.length;
+    var entrando = views[atual];
+
+    views.forEach(function (v) { v.classList.remove('is-entering', 'is-leaving'); });
+    saindo.classList.add('is-leaving');
+    entrando.classList.add('is-active', 'is-entering');
+
+    setTimeout(function () {
+      saindo.classList.remove('is-active', 'is-leaving');
+      entrando.classList.remove('is-entering');
+    }, 750);
+
+    agendar();
+  }
+
+  agendar();
+})();
+
+// ---------- Botão flutuante de e-mail: aparece ao chegar em "Sobre" ----------
+(function () {
+  var botao = document.querySelector('.float-mail');
+  var sobre = document.getElementById('sobre');
+  if (!botao || !sobre) return;
+
+  function atualizar() {
+    var chegou = sobre.getBoundingClientRect().top <= window.innerHeight * 0.6;
+    botao.classList.toggle('is-visible', chegou);
+  }
+
+  window.addEventListener('scroll', atualizar, { passive: true });
+  window.addEventListener('resize', atualizar);
+  atualizar();
+})();
 
 // ---------- Ao recarregar, volta para o início ----------
 (function () {
