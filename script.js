@@ -133,16 +133,28 @@ if (secoes.length) {
   atualizar();
 })();
 
-// ---------- Ao recarregar, volta para o início ----------
+// ---------- Ao abrir ou recarregar, começa no início ----------
 (function () {
   var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-  var isReload = nav ? nav.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
-  if (!isReload || !document.querySelector('.hero')) return;
+  var tipo = nav ? nav.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : 'navigate');
+  if (!document.querySelector('.hero')) return;
+
+  var temHash = !!window.location.hash;
+  // Voltar de outra página (back_forward) ou abrir com âncora (#...) mantém o comportamento normal
+  if (tipo === 'back_forward' || (temHash && tipo !== 'reload')) return;
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  if (window.location.hash) {
+  if (temHash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
-  window.scrollTo(0, 0);
-  window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  function topo() {
+    var html = document.documentElement;
+    var antes = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    html.style.scrollBehavior = antes;
+  }
+  topo();
+  window.addEventListener('load', topo);
+  window.addEventListener('pageshow', topo);
 })();
