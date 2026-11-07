@@ -6,8 +6,9 @@
   <title>Aldem Gestão Estratégica</title>
   <script>
     (function () {
-      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-      if (!isStandalone) return;
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (nav && nav.type === 'back_forward') return;
+      if (window.location.hash) return;
 
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       function resetScrollPosition() {
@@ -24,6 +25,13 @@
         body.style.scrollBehavior = bodyBehavior;
       }
 
+      resetScrollPosition();
+      window.addEventListener('DOMContentLoaded', resetScrollPosition);
+      window.addEventListener('load', function () {
+        resetScrollPosition();
+        window.setTimeout(resetScrollPosition, 150);
+        window.setTimeout(resetScrollPosition, 500);
+      });
       window.addEventListener('pageshow', function () {
         resetScrollPosition();
         window.requestAnimationFrame(resetScrollPosition);

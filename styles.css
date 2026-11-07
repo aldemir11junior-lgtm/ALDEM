@@ -19,7 +19,8 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 0; overflow-anchor: none; }
+body { overflow-anchor: none; }
 section[id], .section, .feature { scroll-margin-top: 0; }
 
 body {
