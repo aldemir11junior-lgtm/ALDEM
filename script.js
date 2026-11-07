@@ -119,13 +119,13 @@ if (secoes.length) {
 
 // ---------- Botão flutuante de e-mail: aparece ao chegar em "Sobre" ----------
 (function () {
-  var botao = document.querySelector('.float-mail');
+  var botoes = document.querySelectorAll('.float-mail');
   var sobre = document.getElementById('sobre');
-  if (!botao || !sobre) return;
+  if (!botoes.length || !sobre) return;
 
   function atualizar() {
     var chegou = sobre.getBoundingClientRect().top <= window.innerHeight * 0.6;
-    botao.classList.toggle('is-visible', chegou);
+    botoes.forEach(function (b) { b.classList.toggle('is-visible', chegou); });
   }
 
   window.addEventListener('scroll', atualizar, { passive: true });
