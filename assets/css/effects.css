@@ -1,0 +1,303 @@
+/* Aldem — camada visual nova (efeitos + acabamento menos "genérico")
+   Carregado DEPOIS de styles.css, então sobrescreve o que for preciso.
+   Efeitos inspirados na lista do naocodei.com (free-code / free-code-css). */
+
+:root {
+  --mono: var(--font);   /* site todo em Inter (antes: JetBrains Mono nos rótulos) */
+  --ease-out: cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+/* ---------- Fundo: sai o brilho difuso, entra cor chapada + granulado ---------- */
+body {
+  background: var(--bg);
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 100; pointer-events: none;
+  opacity: 0.07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Barra de progresso de leitura ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60;
+  background: var(--primary-light);
+  transform-origin: 0 50%; transform: scaleX(var(--p, 0));
+}
+
+/* ---------- Rótulos em fonte mono (estilo "terminal") ---------- */
+.eyebrow {
+  font-family: var(--mono); font-size: 12.5px; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: none; color: var(--primary-light);
+}
+.challenge-number, .step span { font-family: var(--mono); font-weight: 500; }
+
+/* ---------- HERO centralizado ---------- */
+.hero {
+  min-height: calc(100svh - 92px);
+  display: flex; align-items: center; justify-content: center;
+  isolation: isolate;
+}
+.hero::before {
+  /* grade fina que some nas bordas */
+  background-image:
+    linear-gradient(rgba(140, 200, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 200, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+  z-index: -2;
+}
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.hero-light {
+  /* luz que segue o mouse */
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 40%), rgba(43, 140, 255, 0.16), transparent 70%);
+  transition: opacity 0.4s;
+}
+.hero-center {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding-block: 72px 120px;
+}
+.mono-tag {
+  font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: 0.02em;
+  padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px;
+}
+.mono-tag b { color: #fff; font-weight: 700; }
+.caret { font-style: normal; color: var(--primary-light); animation: caret 1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+
+.hero h1 {
+  margin-top: 28px; max-width: 13em; text-wrap: balance;
+  font-size: clamp(40px, 7.2vw, 96px); line-height: 1; font-weight: 800; letter-spacing: -0.045em;
+}
+.hero h1 .accent { color: var(--primary-light); }
+.hero-description { margin: 26px auto 0; max-width: 560px; font-size: 18px; color: var(--muted); }
+.hero-actions { justify-content: center; gap: 28px; margin-top: 34px; }
+
+/* Revelar palavras: cada palavra sobe e sai do desfoque, uma depois da outra */
+.words .w {
+  display: inline-block;
+  animation: word-in 0.9s var(--ease-out) both;
+  animation-delay: calc(0.15s + var(--i) * 0.09s);
+}
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(0.45em) rotate(2deg); filter: blur(10px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hero-in { animation: rise 0.9s var(--ease-out) both; animation-delay: var(--d, 0s); }
+
+/* Palavras que se alternam */
+.hero-cycle {
+  margin-top: 18px; font-family: var(--mono); font-size: 14px; color: var(--muted);
+  display: inline-flex; align-items: baseline; gap: 0.6em; flex-wrap: wrap; justify-content: center;
+}
+.cycle {
+  display: inline-block; height: 1.5em; overflow: hidden; vertical-align: bottom;
+  color: #fff; border-bottom: 1px dashed var(--primary);
+}
+.cycle-list { display: flex; flex-direction: column; animation: cycle 11s var(--ease-out) infinite; }
+.cycle-list span { height: 1.5em; line-height: 1.5em; text-align: left; white-space: nowrap; }
+@keyframes cycle {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-1.5em); }
+  50%, 70% { transform: translateY(-3em); }
+  75%, 95% { transform: translateY(-4.5em); }
+  100% { transform: translateY(-6em); }
+}
+
+/* ---------- Botões: menos brilho, mais firmeza ---------- */
+.btn-primary { box-shadow: none; border-radius: 10px; }
+.btn-primary:hover { box-shadow: 0 0 0 4px rgba(43, 140, 255, 0.18); }
+[data-magnetic] { transition: transform 0.35s var(--ease-out), background 0.2s, box-shadow 0.2s; will-change: transform; }
+/* brilho que atravessa o botão principal de tempos em tempos */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-120%); animation: shine 5.5s ease-in-out 2s infinite;
+}
+@keyframes shine { 0%, 70% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+
+/* ---------- Esteira infinita (naocodei · efeito 17) ----------
+   O conteúdo é duplicado e o trilho anda metade da largura.
+   Espaço com padding (não gap) para a emenda do laço ficar perfeita. */
+.fx-marquee {
+  overflow: hidden; padding-block: 20px 18px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.fx-marquee .trilho { display: flex; width: max-content; animation: marquee 96s linear infinite; }
+.fx-marquee:hover .trilho { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+/* cada palavra em formato de botão (cápsula) */
+.fx-marquee span {
+  display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+  margin-right: 14px;                       /* = gap de 14px, sem quebrar a emenda */
+  padding: 12px 22px; border-radius: 999px;
+  background: rgba(14, 52, 104, 0.45);
+  border: 1px solid rgba(140, 200, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  font-size: 15px; font-weight: 600; color: #fff;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+@media (max-width: 900px) {
+  .fx-marquee { padding-block: 14px; }
+  .fx-marquee span { padding: 10px 18px; font-size: 14px; margin-right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .fx-marquee .trilho { animation: none; } }
+
+/* ---------- Cartões: luz que segue o mouse + inclinação 3D ---------- */
+.challenge-card {
+  position: relative; overflow: hidden;
+  background: rgba(10, 34, 68, 0.55); border-radius: 6px;
+  transform-style: preserve-3d;
+  transition: border-color 0.2s, background 0.2s, transform 0.4s var(--ease-out);
+}
+.challenge-card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(92, 176, 255, 0.18), transparent 70%);
+  transition: opacity 0.3s;
+}
+.challenge-card:hover::before { opacity: 1; }
+.challenge-card:hover { transform: none; }
+.challenge-card.is-tilting:hover { transition: border-color 0.2s, background 0.2s; }
+
+/* Serviços: sai o "botão de app neon", entra cartão sóbrio */
+.service-icon-frame {
+  position: relative; overflow: hidden;
+  background: rgba(10, 34, 68, 0.55);
+  border: 1px solid var(--line); border-radius: 8px; box-shadow: none;
+  transition: border-color 0.25s, transform 0.4s var(--ease-out);
+}
+.service-icon-frame::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), rgba(92, 176, 255, 0.22), transparent 70%);
+  transition: opacity 0.3s;
+}
+.service-option:hover .service-icon-frame,
+.service-option:focus-visible .service-icon-frame { border-color: var(--primary); box-shadow: none; }
+.service-option:hover .service-icon-frame::before { opacity: 1; }
+.service-option { font-size: clamp(16px, 1.6vw, 21px); font-weight: 600; }
+.service-svg { position: relative; color: var(--primary-light); transition: transform 0.5s var(--ease-out); }
+.service-option:hover .service-svg { transform: scale(1.08) rotate(-3deg); }
+
+/* ---------- Método PDCA: linha do tempo que cresce com a rolagem ---------- */
+.process-grid { position: relative; }
+.process-grid::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 1;
+  background: var(--primary-light);
+  transform-origin: 0 50%; transform: scaleX(var(--p, 0));
+}
+.step { border-top-color: var(--line); }
+.step span, .step h3 { transition: color 0.4s; }
+.step.on span { color: var(--primary-light); }
+.step:not(.on) h3 { color: #7f97b8; }
+
+/* ---------- Sobre: texto que se preenche ao rolar ---------- */
+[data-fill] .fw { color: rgba(255, 255, 255, 0.22); transition: color 0.25s; }
+[data-fill] .fw.on { color: #fff; }
+
+/* ---------- Revelar ao rolar (com cascata) ---------- */
+.reveal { opacity: 0; transform: translateY(26px); filter: blur(6px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), filter 0.8s var(--ease-out); transition-delay: var(--rd, 0s); }
+.reveal.in { opacity: 1; transform: none; filter: none; }
+
+/* ---------- Cursor: anel que segue com atraso ---------- */
+.cursor-ring {
+  position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  border: 1px solid rgba(140, 200, 255, 0.6);
+  transition: width 0.25s, height 0.25s, margin 0.25s, background 0.25s, opacity 0.3s;
+  opacity: 0;
+}
+.cursor-ring.on { opacity: 1; }
+.cursor-ring.hover { width: 58px; height: 58px; margin: -29px 0 0 -29px; background: rgba(43, 140, 255, 0.12); border-color: transparent; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .hero { min-height: calc(100svh - 92px); }
+}
+@media (max-width: 640px) {
+  .hero { min-height: calc(100svh - 76px); }
+  .hero-center { padding-block: 48px 100px; }
+  .hero-description { font-size: 16px; }
+  .hero-actions { flex-direction: column; gap: 22px; }
+}
+
+/* ---------- Cabeçalho: sem faixa; menu em cápsula ---------- */
+.site-header {
+  background: transparent;
+  border-bottom: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: background 0.35s;
+}
+/* depois de rolar: um degradê que some para baixo, sem linha dura */
+.site-header::before {
+  content: ''; position: absolute; inset: 0 0 -28px; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 21, 43, 0.96) 0%, rgba(4, 21, 43, 0.85) 62%, rgba(4, 21, 43, 0) 100%);
+  opacity: 0; transition: opacity 0.35s;
+}
+.site-header.is-scrolled::before { opacity: 1; }
+
+.nav-links {
+  position: relative;
+  gap: 2px; padding: 5px;
+  border: 1px solid rgba(140, 200, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(10, 30, 60, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.nav-links a {
+  position: relative; z-index: 1;
+  padding: 9px 18px; border-radius: 999px;
+  font-size: 14.5px; font-weight: 500; color: #b9cbe3;
+  transition: color 0.25s;
+}
+.nav-links a::after { display: none; }
+.nav-links a:hover,
+.nav-links a.is-active,
+.nav-links a.is-current { color: #fff; }
+.nav-links a:focus-visible { outline: 2px solid var(--primary-light); outline-offset: 2px; }
+
+/* destaque que desliza por trás do link */
+.nav-pill {
+  position: absolute; z-index: 0; top: 5px; bottom: 5px; left: 0;
+  width: 0; border-radius: 999px;
+  background: rgba(43, 140, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(140, 200, 255, 0.28);
+  opacity: 0; pointer-events: none;
+  transition: transform 0.45s var(--ease-out), width 0.45s var(--ease-out), opacity 0.25s;
+}
+
+/* menu do celular: fundo próprio (o cabeçalho agora é transparente) */
+.mobile-menu { background: rgba(4, 21, 43, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+/* Botão do topo: WhatsApp nas cores oficiais (verde #25D366, texto preto) */
+.header-cta { border-radius: 999px; }
+.btn-whats {
+  gap: 9px; padding: 0 22px;
+  background: #25D366; border-color: #25D366; color: #000;
+  font-weight: 700;
+}
+.btn-whats:hover { background: #1fbd59; border-color: #1fbd59; box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.22); }
+.btn-whats:focus-visible { outline: 2px solid #25D366; outline-offset: 3px; }
+.btn-whats .ico-whats { width: 20px; height: 20px; fill: currentColor; stroke: none; }
+
+/* ---------- Rodapé: logo em cima do texto, centralizados ---------- */
+.site-footer { padding-block: 44px 40px; }
+.footer-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  text-align: center;
+}
+.footer-inner p { text-align: center; }
+
+/* ---------- Menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .words .w, .hero-in, .cycle-list, .caret, .btn-primary::after { animation: none !important; }
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .hero-canvas, .hero-light, .cursor-ring { display: none; }
+  .nav-pill { transition: none; }
+}
