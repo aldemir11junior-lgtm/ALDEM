@@ -347,12 +347,11 @@
 .jr-lines i + i { width: 42%; background: var(--primary-light); }
 .jr-order { margin-top: 2px; padding: 6px 8px; border-radius: 7px; text-align: center; background: #25D366; color: #04210f; font-size: 10.5px; font-weight: 700; }
 
-/* 03 · Comunicar */
-.jr-chat { display: grid; gap: 6px; }
-.jr-chat span { max-width: 94%; padding: 6px 10px; font-size: 11.5px; line-height: 1.35; border-radius: 11px; }
-.jr-in { background: rgba(255, 255, 255, 0.1); border-bottom-left-radius: 4px; color: #e6effa; }
-.jr-out { justify-self: end; background: #25D366; color: #04210f; font-weight: 500; border-bottom-right-radius: 4px; }
-
+/* 03 · Vender */
+.jr-sale { display: grid; gap: 9px; }
+.jr-sale-head { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
+.jr-cart { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--blue-card); color: #fff; flex-shrink: 0; }
+.jr-cart svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .jr-note { text-align: center; margin: 2px 0 0; font-size: 11px; color: #6f8bb0; }
 
 /* notebook (tela baixa): ilustração mais compacta, para a primeira tela caber */
