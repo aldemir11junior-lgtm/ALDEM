@@ -298,12 +298,12 @@ body::after {
 /* ---------- Primeira tela no celular: textos mais distribuídos ----------
    O espaço entre os elementos cresce com a altura da tela (svh), para o conteúdo ocupar mais a tela
    em vez de ficar todo agrupado no meio. Em celulares baixos, os valores mínimos evitam estourar.
-   Os 3 textos do meio (slogan, descrição e "Para quem precisa de") ficam juntos; a soma dos vãos é a mesma de antes,
+   Os 3 textos do meio (slogan, descrição e "Para quem precisa de") ficam juntos e mais para cima; a soma dos vãos é a mesma,
    então a etiqueta e o botão continuam exatamente no mesmo lugar. */
 @media (max-width: 640px) {
   .hero-center { padding-block: 32px 40px; }
-  .hero h1 { margin-top: clamp(40px, 10.5svh, 94px); }
-  .hero-description { margin-top: clamp(16px, 4.5svh, 38px); }
-  .hero-cycle { margin-top: clamp(10px, 2.5svh, 22px); }
-  .hero-actions { margin-top: clamp(44px, 11.5svh, 102px); }
+  .hero h1 { margin-top: clamp(24px, 4svh, 44px); }
+  .hero-description { margin-top: clamp(12px, 3svh, 26px); }
+  .hero-cycle { margin-top: clamp(8px, 1.8svh, 16px); }
+  .hero-actions { margin-top: clamp(66px, 20.2svh, 170px); }
 }
