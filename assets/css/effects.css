@@ -298,14 +298,17 @@ body::after {
 /* ---------- Primeira tela no celular: textos mais distribuídos ----------
    O espaço entre os elementos cresce com a altura da tela (svh), para o conteúdo ocupar mais a tela
    em vez de ficar todo agrupado no meio. Em celulares baixos, os valores mínimos evitam estourar.
-   Os 3 textos do meio (slogan, descrição e "Para quem precisa de") ficam juntos, e todo o conjunto fica ancorado perto do topo;
-   a etiqueta fica mais perto do cabeçalho e o botão mais perto dos textos. */
+   Os 3 textos do meio (slogan, descrição e "Para quem precisa de") ficam juntos, no centro da tela;
+   só a etiqueta e o botão têm um deslocamento próprio (abaixo). */
 @media (max-width: 640px) {
-  /* conteúdo ancorado pelo topo (e não centralizado na altura): etiqueta e botão sobem */
-  .hero { align-items: flex-start; }
-  .hero-center { padding-block: clamp(24px, 5.5svh, 56px) 40px; }
+  .hero-center { padding-block: 32px 40px; }
   .hero h1 { margin-top: clamp(24px, 4svh, 44px); }
   .hero-description { margin-top: clamp(12px, 3svh, 26px); }
   .hero-cycle { margin-top: clamp(8px, 1.8svh, 16px); }
-  .hero-actions { margin-top: clamp(60px, 14svh, 120px); }
+  .hero-actions { margin-top: clamp(66px, 20.2svh, 170px); }
+  /* Só a etiqueta e o botão sobem; os 3 textos do meio ficam no centro, onde estavam.
+     Etiqueta: sobe até ficar a ~5,5% da altura da tela do cabeçalho (nunca sobe em celulares baixos).
+     Botão: sobe um pouco, ficando mais perto dos textos. */
+  .mono-tag { position: relative; top: calc(-1 * max(0px, 30svh - 163.5px)); }
+  .hero-actions { position: relative; top: calc(-1 * clamp(18px, 4.4svh, 40px)); }
 }
