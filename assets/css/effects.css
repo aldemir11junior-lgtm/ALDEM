@@ -29,7 +29,7 @@ body::after {
   font-family: var(--mono); font-size: 12.5px; font-weight: 500;
   letter-spacing: 0.04em; text-transform: none; color: var(--primary-light);
 }
-.challenge-number, .step span { font-family: var(--mono); font-weight: 500; }
+.step span { font-family: var(--mono); font-weight: 500; }
 
 /* ---------- HERO centralizado ---------- */
 .hero {
@@ -147,21 +147,6 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) { .fx-marquee .trilho { animation: none; } }
 
-/* ---------- Cartões: luz que segue o mouse + inclinação 3D ---------- */
-.challenge-card {
-  position: relative; overflow: hidden;
-  background: rgba(10, 34, 68, 0.55); border-radius: 6px;
-  transform-style: preserve-3d;
-  transition: border-color 0.2s, background 0.2s, transform 0.4s var(--ease-out);
-}
-.challenge-card::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(92, 176, 255, 0.18), transparent 70%);
-  transition: opacity 0.3s;
-}
-.challenge-card:hover::before { opacity: 1; }
-.challenge-card:hover { transform: none; }
-.challenge-card.is-tilting:hover { transition: border-color 0.2s, background 0.2s; }
 
 /* Serviços: sai o "botão de app neon", entra cartão sóbrio */
 .service-icon-frame {
@@ -300,4 +285,12 @@ body::after {
   .reveal { opacity: 1; transform: none; filter: none; transition: none; }
   .hero-canvas, .hero-light, .cursor-ring { display: none; }
   .nav-pill { transition: none; }
+}
+
+/* ---------- Slogan do hero: sempre em DUAS linhas, em qualquer tela ----------
+   O texto mede ~9,35x o tamanho da fonte. No celular a fonte acompanha a largura da tela
+   (largura útil = tela - 44px, com folga) para a segunda linha nunca quebrar em uma terceira. */
+.hero h1 { white-space: nowrap; }
+@media (max-width: 640px) {
+  .hero h1 { font-size: calc((100vw - 44px) / 9.8); }
 }

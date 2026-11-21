@@ -39,7 +39,7 @@ if (menuToggle && mobileMenu) {
 
 // ---------- Destaque do item ativo no menu (conforme a rolagem) ----------
 const navLinks = document.querySelectorAll('.nav-links a');
-const secoes = ['inicio', 'desafios', 'servicos', 'como-trabalhamos', 'sobre']
+const secoes = ['inicio', 'servicos', 'como-trabalhamos', 'sobre']
   .map(function (id) { return document.getElementById(id); })
   .filter(Boolean);
 

@@ -54,7 +54,7 @@
 
   // ---------- Revelar ao rolar (com cascata entre irmãos) ----------
   var alvos = document.querySelectorAll(
-    '.challenges-heading, .challenge-card, .section-heading, .service-option, ' +
+    '.section-heading, .service-option, ' +
     '#como-trabalhamos .eyebrow, #como-trabalhamos h2, .step, .about-grid > div:first-child, .about-point, ' +
     '.service-detail-hero, .service-detail-card, .g-reveal, .process-note'
   );
@@ -250,7 +250,6 @@
       el.style.transform = '';
     });
   }
-  document.querySelectorAll('.challenge-card').forEach(function (c) { tilt(c, c, 8); });
   document.querySelectorAll('.service-option').forEach(function (o) {
     var frame = o.querySelector('.service-icon-frame');
     if (frame) tilt(frame, frame, 14);
@@ -275,7 +274,7 @@
   window.addEventListener('pointermove', function (e) {
     cx = e.clientX; cy = e.clientY;
     anel.classList.add('on');
-    var link = e.target.closest && e.target.closest('a, button, .challenge-card');
+    var link = e.target.closest && e.target.closest('a, button');
     anel.classList.toggle('hover', !!link);
   }, { passive: true });
   document.addEventListener('pointerleave', function () { anel.classList.remove('on'); });
