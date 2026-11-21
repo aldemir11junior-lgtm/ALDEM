@@ -5,9 +5,7 @@ Site estático, em azul forte e visual tecnológico. Não precisa instalar nada:
 ## Estrutura
 
 ```
-index.html              página inicial
-gestao-externa.html     bloco 1: presença digital (jornada do cliente)
-gestao-interna.html     bloco 2: processos (fluxo de gestão)
+index.html              página inicial (serviços, portfólio de projetos, método, sobre)
 assets/
   css/styles.css        base: cores, tipografia, menu, botões, rodapé
   css/effects.css       efeitos visuais, primeira tela, menu em cápsula
@@ -30,7 +28,7 @@ Dê dois cliques em `index.html`. Ele abre no navegador, sem servidor.
 
 1. Abra o VS Code → Arquivo → Abrir Pasta → escolha a pasta do site.
 2. Textos e seções da página inicial: `index.html`.
-3. Textos das páginas de gestão: `gestao-externa.html` e `gestao-interna.html`.
+3. Tudo fica na `index.html`: portfólio na seção `#projetos` e o fluxo dos setores na seção `#decisao`.
 4. Cores e fontes: `assets/css/styles.css` (a paleta está no topo, em `:root`). O site inteiro usa a fonte Inter.
 5. Efeitos e animações: `assets/css/effects.css` e `assets/js/effects.js`.
 6. Salve e atualize o navegador (F5). A extensão "Live Server" atualiza sozinha.
@@ -38,10 +36,10 @@ Dê dois cliques em `index.html`. Ele abre no navegador, sem servidor.
 ## Onde mudar o que mais se altera
 
 - **Instagram:** o perfil é `@aldem.gestao`. O link fica no botão "Instagram" da chamada final de cada página
-  (`https://www.instagram.com/aldem.gestao/`). Para mudar, troque o `href` desse botão nas 3 páginas.
+  (`https://www.instagram.com/aldem.gestao/`). Para mudar, troque o `href` desse botão na `index.html`.
 - **WhatsApp:** o número `5567996896426` está no botão verde do topo e na chamada final (link `wa.me`).
 - **E-mail:** o botão "E-mail" abre o Gmail no navegador, já preenchido (link `mail.google.com`).
-- **Setores do fluxo da gestão interna:** na `gestao-interna.html`, blocos `<div class="wf-n wf-src">`.
+- **Setores do fluxo:** na `index.html`, seção `#decisao`, blocos `<div class="wf-n wf-src">`.
 - **Cartões dos desafios:** na `index.html`, seção `#desafios`.
 
 ## Avisos

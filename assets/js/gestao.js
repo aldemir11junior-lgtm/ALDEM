@@ -123,6 +123,25 @@
   })();
 
   /* =====================================================================
+     FLUXO "DECISÃO BASEADA EM DADOS" (home) — anima só quando aparece.
+     Ao liberar, zera o relógio dos pulsos (SVG) para ficarem em sincronia
+     com os nós que acendem (CSS), que começam a contar nesse momento.
+     ===================================================================== */
+  document.querySelectorAll('.wf-gate').forEach(function (wf) {
+    var svgFluxo = wf.querySelector('.wf-svg');
+    function liberar() {
+      if (wf.classList.contains('run')) return;
+      if (svgFluxo && svgFluxo.setCurrentTime) svgFluxo.setCurrentTime(0);
+      wf.classList.add('run');
+    }
+    if (reduz || !('IntersectionObserver' in window)) { liberar(); return; }
+    var obsFluxo = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { liberar(); obsFluxo.disconnect(); }
+    }, { threshold: 0.35 });
+    obsFluxo.observe(wf);
+  });
+
+  /* =====================================================================
      CHAMADA FINAL — desenha o sublinhado quando a seção aparece
      ===================================================================== */
   var chamada = document.querySelector('.cta-final');

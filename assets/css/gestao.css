@@ -34,48 +34,65 @@
   margin-top: 40px;
 }
 .g-block {
-  position: relative; z-index: 1;
+  position: relative; z-index: 1; overflow: hidden; isolation: isolate;
   display: flex; flex-direction: column;
-  min-height: 430px; padding: 42px 46px 34px;
+  padding: 34px 38px 28px;
   color: #fff;
   will-change: transform, opacity;
   opacity: calc(0.15 + var(--e) * 0.85);
   transition: box-shadow 0.4s;
 }
 .g-block-ext {
-  background: var(--navy-card);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(43, 140, 255, 0.18), transparent 55%),
+    linear-gradient(160deg, #0d2a5a, #081d40 70%);
   border: 1px solid rgba(120, 170, 255, 0.22); border-right: 0;
   border-radius: 20px calc((1 - var(--e)) * 20px) calc((1 - var(--e)) * 20px) 20px;
   transform: translateX(calc((1 - var(--e)) * -70vw)) rotate(calc((1 - var(--e)) * -7deg));
   transform-origin: 100% 50%;
 }
 .g-block-int {
-  background: var(--blue-card);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+    linear-gradient(160deg, #2479ec, #1559c8 75%);
   border-radius: calc((1 - var(--e)) * 20px) 20px 20px calc((1 - var(--e)) * 20px);
   transform: translateX(calc((1 - var(--e)) * 70vw)) rotate(calc((1 - var(--e)) * 7deg));
   transform-origin: 0 50%;
 }
-.g-block-tag {
-  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-  opacity: 0.75;
+/* grade fina de fundo, que some para baixo */
+.g-block::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
+          mask-image: linear-gradient(180deg, #000, transparent 70%);
 }
-.g-block h3 { margin-top: 14px; font-size: clamp(28px, 2.8vw, 40px); font-weight: 700; letter-spacing: -0.03em; }
-.g-block-sub { margin-top: 10px; font-size: 15.5px; font-style: italic; }
+/* cabeçalho: ícone + título + subtítulo */
+.gb-head { display: flex; align-items: center; gap: 16px; }
+.g-block h3 { margin: 0; font-size: clamp(24px, 2.2vw, 30px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+.g-block-sub { margin-top: 5px; font-size: 14.5px; font-style: normal; }
 .g-block-ext .g-block-sub { color: var(--primary-light); }
-.g-block-int .g-block-sub { color: #e2eeff; }
-.g-block ul { margin-top: 28px; display: grid; gap: 12px; }
-.g-block li { display: flex; align-items: center; gap: 12px; font-size: 16px; }
-.g-block li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.8; flex-shrink: 0; }
-.g-block-go {
-  margin-top: auto; padding-top: 30px;
-  display: inline-flex; align-items: center; gap: 10px;
-  font-weight: 600; font-size: 15px;
-}
-.g-block-go .ico { transition: transform 0.3s var(--ease-out); }
-.g-block:hover .g-block-go .ico { transform: translateX(6px); }
-.g-block:hover { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18); }
-.g-block:focus-visible { outline: 2px solid var(--primary-light); outline-offset: 4px; }
+.g-block-int .g-block-sub { color: #dceaff; }
 
+/* serviços em linhas, cada uma com o seu ícone */
+.gb-list { margin-top: 24px; display: grid; }
+.gb-list li { display: flex; align-items: center; gap: 13px; padding: 11px 0; font-size: 15.5px; font-weight: 500; }
+.gb-list li + li { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.g-block-int .gb-list li + li { border-top-color: rgba(255, 255, 255, 0.18); }
+.gb-ic {
+  flex-shrink: 0; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;
+  background: rgba(43, 140, 255, 0.18); color: var(--primary-light);
+  transition: transform 0.35s var(--ease-out), background 0.3s;
+}
+.g-block-int .gb-ic { background: rgba(255, 255, 255, 0.16); color: #fff; }
+.gb-ic svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.g-block:hover .gb-ic { transform: translateX(3px); }
+
+.gb-list { margin-bottom: 0; }
+.g-block:hover 
+.g-block:hover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22); }
 /* Costura: um risco de luz no ponto onde os blocos se encontram */
 .blocks-seam {
   position: absolute; z-index: 2; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px;
@@ -196,7 +213,7 @@
   .blocks-scroll { height: auto; }
   .blocks-sticky { position: static; min-height: 0; padding-block: 72px; }
   .blocks-stage { grid-template-columns: 1fr; gap: 0; }
-  .g-block { min-height: 0; padding: 32px 26px 28px; }
+  .g-block { padding: 28px 22px 24px; }
   .g-block-ext { border-right: 1px solid rgba(120, 170, 255, 0.22); border-bottom: 0; border-radius: 20px 20px calc((1 - var(--e)) * 20px) calc((1 - var(--e)) * 20px); transform-origin: 50% 100%; }
   .g-block-int { border-radius: calc((1 - var(--e)) * 20px) calc((1 - var(--e)) * 20px) 20px 20px; transform-origin: 50% 0; }
   .blocks-seam { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 2px; margin: -1px 0 0; background: linear-gradient(90deg, transparent, #fff, transparent); }
@@ -564,6 +581,127 @@
 .g-row .g-icon { width: 46px; height: 46px; flex-shrink: 0; }
 .g-row h3 { margin: 0; font-size: 18px; }
 .g-row p { margin-top: 4px; font-size: 14.5px; }
+
+/* =====================================================================
+   PORTFÓLIO (gestão externa) — projetos já entregues
+   ===================================================================== */
+/* os 4 projetos lado a lado; em telas menores, 2 x 2 e depois um embaixo do outro */
+.pf-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 48px; }
+@media (max-width: 1080px) { .pf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pf-card {
+  display: flex; flex-direction: column; color: inherit;
+  border-radius: 16px; overflow: hidden;
+  background: rgba(10, 34, 68, 0.55); border: 1px solid var(--line);
+  transition: transform 0.45s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
+}
+a.pf-card:hover, a.pf-card:focus-visible {
+  transform: translateY(-6px); border-color: rgba(140, 200, 255, 0.5);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(92, 176, 255, 0.15);
+}
+a.pf-card:focus-visible { outline: 2px solid var(--primary-light); outline-offset: 4px; }
+
+/* capa: a primeira tela do site, dentro de uma "janela" de navegador */
+.pf-cover { display: block; padding: 14px 14px 0; }
+.pf-bar {
+  display: flex; align-items: center; gap: 5px; padding: 7px 10px;
+  border-radius: 9px 9px 0 0; background: rgba(23, 80, 160, 0.35);
+  font-size: 11px; color: var(--muted);
+}
+.pf-bar i { width: 6px; height: 6px; border-radius: 50%; background: rgba(140, 200, 255, 0.45); }
+.pf-bar span { margin-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-shot { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #0b2550; }
+.pf-shot img {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  transition: transform 1.2s var(--ease-out);
+}
+a.pf-card:hover .pf-shot img { transform: scale(1.06); }
+
+.pf-info { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; }
+.pf-tag {
+  align-self: flex-start; padding: 4px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em;
+  background: rgba(43, 140, 255, 0.15); color: var(--primary-light);
+}
+.pf-info strong { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.pf-go { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--primary-light); }
+.pf-go .ico { width: 16px; height: 16px; transition: transform 0.35s var(--ease-out); }
+a.pf-card:hover .pf-go .ico { transform: translate(3px, -3px); }
+
+/* projeto sem link (sistema interno do cliente) */
+.pf-lock { display: inline-flex; align-items: center; gap: 7px; margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.pf-lock svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* cartões de exemplo (ainda sem projeto) */
+.pf-soon { border-style: dashed; background: rgba(10, 34, 68, 0.25); }
+.pf-empty {
+  display: grid; place-items: center; color: #6f8bb0; font-size: 13px; font-weight: 600;
+  background: repeating-linear-gradient(135deg, rgba(140, 200, 255, 0.05) 0 10px, transparent 10px 20px), #071c38;
+}
+.pf-soon .pf-tag { background: rgba(255, 255, 255, 0.06); color: var(--muted); }
+.pf-soon .pf-info strong { color: #7f97b8; }
+
+@media (max-width: 900px) { .pf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .pf-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .pf-card, .pf-shot img, .pf-go .ico { transition: none; } }
+
+/* =====================================================================
+   DECISÃO BASEADA EM DADOS (home) — o fluxo da gestão interna ao lado do texto
+   ===================================================================== */
+.dd { border-top: 1px solid var(--line); padding-bottom: 48px; }
+/* o Método vem logo depois: encurta o vão entre os dois (era ~204px, fica ~104px) */
+.dd + .results { padding-top: 56px; }
+.dd-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
+.dd .wf-wrap { justify-self: end; }
+
+/* versão empilhada: título centralizado em cima, desenho embaixo */
+.dd-stack { display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center; }
+.dd-stack .g-section-head { max-width: 680px; }
+.dd-stack .eyebrow { justify-content: center; }
+.dd .dd-stack .wf-wrap { width: min(100%, 1000px); justify-self: auto; }
+
+/* fluxo na vertical, largo e baixo (viewBox 1000 x 360): Gestor no topo, Painel no meio, setores na base */
+.wf.wf-v { --vbh: 360; aspect-ratio: 1000 / var(--vbh); --pp: min(1.45cqw, 10px); }
+.wf-v .wf-n {
+  left: calc((var(--x) - var(--w) / 2) / 1000 * 100%); top: calc((var(--y) - var(--h) / 2) / var(--vbh) * 100%);
+  width: calc(var(--w) / 1000 * 100%); height: calc(var(--h) / var(--vbh) * 100%);
+  gap: min(1.4cqw, 9px); padding-inline: min(1.6cqw, 12px); border-radius: min(1.9cqw, 14px);
+}
+.wf-v .wf-col { gap: min(0.7cqw, 6px); }
+.wf-v .wf-ic { width: min(4.1cqw, 28px); height: min(4.1cqw, 28px); border-radius: min(1.1cqw, 8px); }
+.wf-v .wf-gestor { border-radius: 50%; }
+.wf-v .wf-gestor .wf-ic { width: min(4.6cqw, 30px); height: min(4.6cqw, 30px); border-radius: 50%; }
+/* portas com tamanho máximo, para não crescerem com a largura */
+.wf-v .wf-p { width: var(--pp); height: var(--pp); }
+.wf-v .wf-p.wf-pt { top: calc(var(--pp) / -2); left: calc(50% - var(--pp) / 2); }
+.wf-v .wf-p.wf-pb { bottom: calc(var(--pp) / -2); top: auto; left: calc(50% - var(--pp) / 2); }
+.wf-v .wf-decision { right: auto; left: calc(560 / 1000 * 100%); top: calc(42 / 360 * 100%); text-align: left; padding: min(0.9cqw, 7px) min(1.9cqw, 14px); }
+/* telas estreitas: o círculo do Gestor fica pequeno, então mostra só o nome */
+@container wf (max-width: 600px) {
+  .wf-v .wf-gestor .wf-ic { display: none; }
+}
+/* painel central: borda de destaque (é para onde todos os setores mandam os dados) */
+.wf-main {
+  border-color: rgba(92, 176, 255, 0.55); background: rgba(10, 36, 74, 0.98);
+  animation: wf-in 0.7s var(--ease-out) var(--d, 1s) both, wf-main 3.6s ease-out 1.8s infinite;
+}
+@keyframes wf-main {
+  0%, 60% { border-color: rgba(92, 176, 255, 0.55); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32); }
+  65% { border-color: #cfe6ff; box-shadow: 0 0 0 7px rgba(92, 176, 255, 0.2), 0 0 34px rgba(92, 176, 255, 0.6), 0 14px 30px rgba(0, 0, 0, 0.32); }
+  84%, 100% { border-color: rgba(92, 176, 255, 0.55); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32); }
+}
+@media (prefers-reduced-motion: reduce) { .wf-main { animation: none !important; } }
+@media (max-width: 900px) {
+  .dd-grid { grid-template-columns: 1fr; gap: 32px; }
+  .dd .wf-wrap { justify-self: center; }
+}
+/* "portão": nada do fluxo anima até a seção aparecer na tela (o JS põe .run) */
+.wf-gate:not(.run) .wf-n,
+.wf-gate:not(.run) .wf-w,
+.wf-gate:not(.run) .wf-decision,
+.wf-gate:not(.run) .wf-gestor::before,
+.wf-gate:not(.run) .wf-d-list > span:first-child,
+.wf-gate:not(.run) .wf-hub .wf-ic svg { animation-play-state: paused; }
+.wf-gate:not(.run) .wf-dot { visibility: hidden; }
 
 /* =====================================================================
    CHAMADA FINAL (home e páginas de gestão)
