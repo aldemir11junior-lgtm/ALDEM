@@ -717,14 +717,34 @@ a.pf-card:hover .pf-go .ico { transform: translate(3px, -3px); }
 @media (max-width: 640px) {
   .cta-final { padding-block: 88px 80px; }
   .cta-lead { font-size: 16.5px; }
-  /* os 3 botões lado a lado, como no computador (dividem a largura em partes iguais) */
-  .cta-actions { flex-wrap: nowrap; width: 100%; gap: 8px; }
-  .btn-cta { flex: 1 1 0; min-width: 0; padding: 0 6px; gap: 6px; font-size: 13.5px; }
-  .btn-cta .ico, .btn-mail img { width: 18px; }
+  /* os 3 botões lado a lado, só com o ícone (o nome fica escondido, mas continua lido por leitores de tela) */
+  .cta-actions { flex-wrap: nowrap; width: 100%; gap: 10px; }
+  .btn-cta { flex: 1 1 0; min-width: 0; padding: 0; height: 58px; }
+  .btn-cta .ico { width: 26px; height: 26px; }
+  .btn-mail img { width: 28px; height: auto; }
+  .cta-label {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+    overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
 }
-/* celulares estreitos: ícone em cima do nome, para os 3 caberem lado a lado */
-@media (max-width: 430px) {
-  .btn-cta { flex-direction: column; height: 66px; gap: 6px; font-size: 13px; }
-  .btn-cta .ico, .btn-mail img { width: 22px; height: 22px; }
-  .btn-mail img { height: auto; }
+
+/* Aviso do acompanhamento mensal (seção Método) */
+.process-note {
+  margin-top: 44px; padding: 22px 26px;
+  border: 1px solid var(--line); border-left: 3px solid var(--primary);
+  border-radius: 6px; background: rgba(10, 34, 68, 0.55);
+  color: var(--muted); font-size: 15.5px; line-height: 1.7;
+}
+.process-note b { color: #fff; }
+
+/* ---------- Nossos serviços no celular: os dois blocos empilhados e separados ----------
+   (esta regra tinha sido apagada sem querer na limpeza dos Desafios) */
+@media (max-width: 900px) {
+  .blocks-scroll { height: auto; }
+  .blocks-sticky { position: static; min-height: 0; padding-block: 72px; }
+  .blocks-stage { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  .g-block { padding: 28px 22px 26px; }
+  .g-block-ext { border-right: 1px solid rgba(120, 170, 255, 0.22); border-radius: 20px; transform-origin: 50% 100%; }
+  .g-block-int { border-radius: 20px; transform-origin: 50% 0; }
+  .blocks-seam { display: none; }
 }
