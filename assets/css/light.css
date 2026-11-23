@@ -1,0 +1,117 @@
+/* Aldem — versão CLARA (carregado por último; apague este arquivo + o <link> para voltar ao escuro) */
+
+:root {
+  --bg: #f4f8fe;
+  --bg-2: #eaf2fc;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-solid: #ffffff;
+  --primary: #1768d8;
+  --primary-strong: #0f55b8;
+  --primary-hover: #2b8cff;
+  --primary-light: #1a6be0;      /* usado em destaques de texto: precisa ser escuro no fundo claro */
+  --text: #0b2550;
+  --muted: #4d6482;
+  --line: rgba(23, 80, 160, 0.16);
+  --glow: 0 0 40px rgba(43, 140, 255, 0.2);
+  --navy-card: #ffffff;
+}
+
+body {
+  background:
+    radial-gradient(900px 600px at 80% 8%, rgba(43, 140, 255, 0.14), transparent 60%),
+    radial-gradient(700px 500px at 0% 40%, rgba(23, 104, 216, 0.08), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* ---------- Cabeçalho / navegação ---------- */
+.site-header { background: transparent; }
+.site-header::before { background: linear-gradient(180deg, rgba(244, 248, 254, 0.97) 0%, rgba(244, 248, 254, 0.88) 62%, rgba(244, 248, 254, 0) 100%); }
+.nav-links { background: rgba(255, 255, 255, 0.78); border-color: rgba(23, 80, 160, 0.14); box-shadow: 0 10px 30px rgba(11, 37, 80, 0.08); }
+.nav-links a { color: #4d6482; }
+.nav-links a:hover, .nav-links a.is-active, .nav-links a.is-current { color: var(--primary-strong); }
+.nav-pill { background: rgba(43, 140, 255, 0.14); box-shadow: inset 0 0 0 1px rgba(23, 104, 216, 0.25); }
+.mobile-menu { background: rgba(244, 248, 254, 0.98); }
+.site-header .brand:hover .brand-logo, .site-header .brand:focus-visible .brand-logo { filter: drop-shadow(0 0 8px rgba(43, 140, 255, 0.35)); }
+
+/* ---------- Texto ---------- */
+.hero-description { color: var(--muted); }
+.mono-tag b, .cycle, .process-note b, [data-fill] .fw.on { color: var(--text); }
+[data-fill] .fw { color: rgba(11, 37, 80, 0.2); }
+.step:not(.on) h3 { color: #8aa0bd; }
+.g-hero h1 .accent, .cta-mark { color: var(--primary); }
+.btn-primary { color: #fff; }
+
+/* ---------- Faixas / seções ---------- */
+.fx-marquee, .marquee, [class*="strip"] { border-color: var(--line); }
+.fx-marquee span { background: #fff; border-color: rgba(23, 80, 160, 0.16); box-shadow: 0 2px 8px rgba(11, 37, 80, 0.05); color: var(--text); }
+.hero::before { background-image: linear-gradient(rgba(23, 80, 160, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 80, 160, 0.07) 1px, transparent 1px); }
+.features { background: rgba(255, 255, 255, 0.6); }
+.about { background: linear-gradient(180deg, rgba(220, 234, 252, 0.7), rgba(244, 248, 254, 0)); }
+
+/* ---------- Cartões ---------- */
+.service-icon-frame, .pf-card, .process-note { background: #fff; border-color: var(--line); box-shadow: 0 6px 20px rgba(11, 37, 80, 0.06); }
+a.pf-card:hover, a.pf-card:focus-visible { border-color: rgba(23, 104, 216, 0.45); box-shadow: 0 24px 50px rgba(11, 37, 80, 0.14); }
+.pf-soon { background: rgba(255, 255, 255, 0.55); box-shadow: none; }
+.pf-soon .pf-tag { background: rgba(23, 80, 160, 0.08); }
+.pf-soon .pf-info strong { color: #7a90ad; }
+.pf-empty { color: #7a90ad; background: repeating-linear-gradient(135deg, rgba(23, 80, 160, 0.06) 0 10px, transparent 10px 20px), #eaf2fc; }
+.pf-bar { background: rgba(23, 80, 160, 0.1); }
+.pf-bar i, .jr-bar i { background: rgba(23, 80, 160, 0.3); }
+.pf-shot { background: #eaf2fc; }
+
+/* ---------- Bloco "externo" (era azul-marinho): vira cartão branco ---------- */
+.g-block-ext {
+  color: var(--text);
+  background: radial-gradient(120% 90% at 0% 0%, rgba(43, 140, 255, 0.12), transparent 55%), #fff;
+  border-color: var(--line);
+  box-shadow: 0 10px 30px rgba(11, 37, 80, 0.08);
+}
+.g-block-ext .g-block-sub { color: var(--primary); }
+.g-block-ext .gb-ic { background: rgba(43, 140, 255, 0.14); color: var(--primary); }
+.g-block-ext .gb-list li + li { border-top-color: var(--line); }
+.g-block-ext:hover { box-shadow: 0 10px 30px rgba(11, 37, 80, 0.08), inset 0 0 0 1px rgba(23, 104, 216, 0.3); }
+.blocks-seam { background: linear-gradient(transparent, var(--primary), transparent); }
+/* bloco interno e painel azul continuam azuis com texto branco */
+.g-block-int, .g-split-panel { color: #fff; }
+
+/* ---------- Jornada do cliente (hero Gestão Externa) ---------- */
+.jr-step, .wf-n { background: rgba(255, 255, 255, 0.96); border-color: rgba(23, 80, 160, 0.2); box-shadow: 0 14px 30px rgba(11, 37, 80, 0.1); color: var(--text); }
+.wf-n:hover { border-color: var(--primary); }
+.jr-search { background: rgba(23, 80, 160, 0.07); color: var(--muted); }
+.jr-site { border-color: var(--line); }
+.jr-page { background: #f1f6fd; }
+.jr-h { background: var(--text); }
+.jr-p { background: rgba(11, 37, 80, 0.16); }
+.jr-lines i { background: rgba(11, 37, 80, 0.2); }
+.jr-note { color: #7a90ad; }
+.jr-bar { background: rgba(23, 80, 160, 0.1); }
+.jr-badge { color: var(--primary); }
+.jr-port, .wf-p { background: #fff; border-color: var(--primary); }
+.wf-w { stroke: rgba(23, 104, 216, 0.35); }
+.wf-dot { fill: var(--primary); filter: drop-shadow(0 0 5px rgba(43, 140, 255, 0.7)); }
+.wf-decision { background: #fff; color: var(--text); }
+.wf-gestor { color: #fff; }
+
+/* ---------- Hero com grade ---------- */
+.g-hero::before {
+  background-image:
+    linear-gradient(rgba(23, 80, 160, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 80, 160, 0.06) 1px, transparent 1px);
+}
+.g-bars i:nth-child(1) { background: #7fa6d6; }
+
+/* ---------- CTA final ---------- */
+.cta-final {
+  background:
+    radial-gradient(55% 65% at 50% 42%, rgba(43, 140, 255, 0.18), transparent 70%),
+    linear-gradient(180deg, #e6f0fc, var(--bg));
+}
+.cta-marquee span { -webkit-text-stroke: 1px rgba(23, 104, 216, 0.14); }
+.cta-marquee div:nth-child(2) span { -webkit-text-stroke-color: rgba(23, 104, 216, 0.09); }
+
+/* ---------- Rodapé ---------- */
+.site-footer { background: transparent; }
+
+/* Título do hero: tudo em azul-marinho */
+.hero h1 .accent { color: var(--text); }
