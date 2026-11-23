@@ -27,3 +27,8 @@ html[data-tema="escuro"] .tema-sol { display: block; }
 /* Faixas um pouco mais escuras (portfólio, PDCA e rodapé) */
 :root { --faixa: color-mix(in srgb, var(--bg-2) 90%, #000); }
 #projetos, #como-trabalhamos, .site-footer { background: var(--faixa); }
+
+/* Celular/toque: sem mouse não há "luz que segue o cursor" — ela ficava parada no centro, tingindo a primeira tela de azul */
+@media (hover: none), (max-width: 900px) {
+  .hero-light { display: none; }
+}
