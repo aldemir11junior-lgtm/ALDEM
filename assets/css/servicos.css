@@ -1,0 +1,170 @@
+/* ==========================================================================
+   SERVIÇOS em duas telas (Gestão externa / Gestão interna), com cartões de oferta
+   ========================================================================== */
+.svc-sec { padding: 92px 0 104px; }
+.svc-head { max-width: 640px; margin: 0 auto 52px; text-align: center; }
+.svc-head .eyebrow { justify-content: center; }
+.svc-head h2 { margin-top: 14px; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; font-weight: 800; letter-spacing: -0.03em; }
+.svc-head p { margin-top: 14px; font-size: 17px; line-height: 1.65; color: var(--muted); }
+.svc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 1040px; margin: 0 auto; align-items: stretch; }
+
+.svc-card {
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  padding: 36px 36px 34px; border-radius: 30px;
+  background: #fff; border: 1px solid rgba(23, 80, 160, 0.12); color: #0b2550;
+  box-shadow: 0 22px 50px rgba(11, 37, 80, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
+}
+.svc-card:hover { transform: translateY(-6px); box-shadow: 0 30px 64px rgba(11, 37, 80, 0.14); }
+.svc-label { display: inline-flex; align-items: center; height: 26px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8a9ab3; }
+.svc-badge {
+  align-self: flex-start; display: inline-flex; align-items: center; height: 26px; padding: 0 14px; border-radius: 999px;
+  background: #2b8cff; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.svc-ico {
+  position: absolute; top: 30px; right: 30px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px;
+  background: rgba(43, 140, 255, 0.12); color: #1768d8;
+}
+.svc-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.svc-card h3 { margin-top: 16px; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.1; font-weight: 800; letter-spacing: -0.03em; }
+.svc-desc { margin-top: 14px; font-size: 15.5px; line-height: 1.65; color: #4d6482; }
+.svc-list { margin: 26px 0 32px; padding: 0; list-style: none; display: grid; gap: 14px; }
+.svc-list li { position: relative; padding-left: 30px; font-size: 15px; line-height: 1.45; color: #1a3560; }
+.svc-list li::before {
+  content: ''; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(43, 140, 255, 0.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.4' fill='none' stroke='%231768d8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+}
+.svc-preco { margin-top: auto; padding-top: 30px; }
+.svc-preco span { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #8a9ab3; }
+.svc-preco b { display: block; margin-top: 4px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #1768d8; }
+.svc-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: auto; height: 52px; border-radius: 999px;
+  background: #0b2550; color: #fff; font-size: 15px; font-weight: 700; transition: background 0.25s;
+}
+.svc-btn:hover { background: #1768d8; }
+.svc-btn span { transition: transform 0.25s; }
+.svc-btn:hover span { transform: translateX(4px); }
+
+/* cartão recomendado: escuro, com brilho azul no canto */
+.svc-rec {
+  background: radial-gradient(90% 70% at 100% 0%, rgba(43, 140, 255, 0.38), transparent 60%), #04152b;
+  border-color: rgba(120, 170, 255, 0.22); color: #fff;
+  box-shadow: 0 30px 70px rgba(4, 21, 43, 0.38);
+}
+.svc-rec:hover { box-shadow: 0 38px 80px rgba(4, 21, 43, 0.46); }
+.svc-rec .svc-ico { background: rgba(255, 255, 255, 0.1); color: #8cc8ff; }
+.svc-rec h3 { color: #fff; }
+.svc-rec .svc-desc { color: #a9bdd6; }
+.svc-rec .svc-list li { color: #dbe7f7; }
+.svc-rec .svc-list li::before { background-color: rgba(43, 140, 255, 0.28); }
+.svc-rec .svc-preco span { color: #8aa4c6; }
+.svc-rec .svc-preco b { color: #8cc8ff; }
+.svc-rec .svc-btn { background: #2b8cff; }
+.svc-rec .svc-btn:hover { background: #4a9dff; }
+
+/* Gestão externa e Gestão interna: um único cartão contínuo (sem efeito de entrada de uma para a outra) */
+#servicos { padding-bottom: 88px; z-index: 3; }
+#servicos-int {
+  position: relative; z-index: 2; margin: 0 var(--gap-card);
+  border: 1px solid var(--line); border-top: 0; border-bottom-width: 0; border-radius: 0;
+  background: #f9fbff; box-shadow: none;
+  padding-top: 84px; padding-bottom: 148px;
+}
+/* linha tranquila dividindo as duas telas */
+#servicos-int::before {
+  content: ''; position: absolute; top: 0; left: 50%; translate: -50% 0;
+  width: min(960px, 82%); height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(23, 80, 160, 0.26), transparent);
+}
+#projetos { z-index: 4; }
+@media (max-width: 900px) {
+  .svc-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .svc-sec { padding: 72px 0 84px; }
+}
+@media (max-width: 640px) {
+  #servicos-int { margin-inline: 10px; }
+  .svc-card { padding: 28px 24px 26px; border-radius: 24px; }
+  .svc-ico { top: 22px; right: 20px; }
+}
+
+/* ícone da marca (barras) no cartão da Landing page */
+.svc-ico-marca svg { stroke: none; fill: none; width: 24px; height: 24px; }
+
+/* Sem a tela "Decisão baseada em dados": o PDCA chega direto por cima do Portfólio (base reta, que segue por baixo) */
+#projetos { border-radius: var(--raio-card) var(--raio-card) 0 0; border-bottom-width: 0; margin-bottom: 0; padding-bottom: 148px; box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2); }
+
+/* ==========================================================================
+   MÉTODO PDCA: sem efeito de entrada e com o mesmo fundo claro da capa
+   ========================================================================== */
+#como-trabalhamos {
+  --bg: #f4f8fe; --bg-2: #eaf2fc; --surface: rgba(255, 255, 255, 0.8); --surface-solid: #ffffff;
+  --primary: #1768d8; --primary-strong: #0f55b8; --primary-hover: #2b8cff; --primary-light: #1a6be0;
+  --text: #0b2550; --muted: #4d6482; --line: rgba(23, 80, 160, 0.16);
+  position: relative; z-index: auto; margin: 0; border: 0; border-radius: 0; box-shadow: none;
+  background: transparent; color: var(--text);
+  padding-top: 100px; padding-bottom: 104px; overflow: hidden;
+}
+/* a mesma grade fina da capa, que some nas bordas */
+#como-trabalhamos::before {
+  content: ''; display: block; position: absolute; inset: 0; width: auto; height: auto; translate: none; opacity: 1;
+  border-radius: 0; z-index: 0; pointer-events: none; background-color: transparent;
+  background-image: linear-gradient(rgba(23, 80, 160, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 80, 160, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: center center;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+}
+#como-trabalhamos > .wrap { position: relative; z-index: 1; }
+#como-trabalhamos > .wrap > h2 { color: var(--text); }
+#como-trabalhamos .pdca-tl::before { background: rgba(23, 80, 160, 0.18); }
+#como-trabalhamos .tl-node { background: #fff; border-color: rgba(23, 80, 160, 0.3); color: #6f87a8; }
+#como-trabalhamos .pdca-run .tl-node { background: var(--primary); border-color: var(--primary); color: #fff; }
+#como-trabalhamos .tl-text h3 { color: var(--text); }
+#como-trabalhamos .tl-text p { color: var(--muted); }
+#como-trabalhamos .tl-text::after { background: rgba(23, 80, 160, 0.3); }
+#como-trabalhamos .process-note { border-top: 1px solid rgba(23, 80, 160, 0.14); color: var(--muted); }
+#como-trabalhamos .process-note b { color: var(--text); }
+
+/* o Portfólio volta a ter a base arredondada, já que nada chega por cima dele */
+#projetos { border-radius: var(--raio-card); border-bottom-width: 1px; margin-bottom: var(--gap-card); padding-bottom: 64px; box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2), 0 22px 50px rgba(4, 21, 43, 0.2); }
+@media (max-width: 640px) { #como-trabalhamos { padding-top: 72px; padding-bottom: 80px; } #projetos { padding-bottom: 44px; } }
+
+/* ==========================================================================
+   SOBRE (Aldem Gestão Estratégica): mesmo fundo do PDCA, com uma linha tranquila separando
+   ========================================================================== */
+html #sobre, html:not([data-tema="escuro"]) #sobre {
+  position: relative; overflow: hidden;
+  background: transparent; background-image: none;
+  border: 0; padding-top: 100px;
+}
+html #sobre::before {
+  content: ''; display: block; position: absolute; inset: 0; width: auto; height: auto; translate: none; opacity: 1;
+  border-radius: 0; z-index: 0; pointer-events: none; background-color: transparent;
+  background-image: linear-gradient(rgba(23, 80, 160, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 80, 160, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: center center;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 75%);
+}
+#sobre > .wrap { position: relative; z-index: 1; }
+/* linha completa (de ponta a ponta) separando do PDCA */
+#sobre::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+  height: 1px; background: rgba(23, 80, 160, 0.2);
+}
+@media (max-width: 640px) { html #sobre { padding-top: 72px; } }
+
+/* ==========================================================================
+   ÚLTIMA ABA (Fale com a gente): versão ESCURA, nos botões de contato e no fundo
+   ========================================================================== */
+html #contato, html:not([data-tema="escuro"]) #contato {
+  --bg: #04152b; --bg-2: #071f3d; --surface: rgba(14, 52, 104, 0.35); --surface-solid: #0a2a54;
+  --primary: #2b8cff; --primary-strong: #1768d8; --primary-hover: #4a9dff; --primary-light: #8cc8ff;
+  --text: #ffffff; --muted: #a9bdd6; --line: rgba(120, 170, 255, 0.2);
+  color: #fff; border-top: 1px solid rgba(120, 170, 255, 0.2);
+  background:
+    radial-gradient(55% 65% at 50% 42%, rgba(26, 107, 224, 0.30), transparent 70%),
+    linear-gradient(180deg, #061a35, #04152b);
+}
+html #contato .cta-title { color: #fff; }
+html #contato .cta-lead { color: #a9bdd6; }
+html #contato .cta-marquee span { -webkit-text-stroke: 1px rgba(140, 200, 255, 0.12); }
+html #contato .cta-marquee div:nth-child(2) span { -webkit-text-stroke-color: rgba(140, 200, 255, 0.08); }

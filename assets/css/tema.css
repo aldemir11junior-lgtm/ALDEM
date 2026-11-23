@@ -446,3 +446,39 @@ html .g-block-ext .gb-list li + li { border-top-color: rgba(255, 255, 255, 0.18)
 
 /* Primeira tela: sem a luz azul que segue o mouse */
 .hero-light { display: none !important; }
+
+/* ---------- Rodapé na versão CLARA (cores do tema claro; logo escura) ---------- */
+html .site-footer {
+  --bg: #f4f8fe; --bg-2: #eaf2fc; --surface: rgba(255, 255, 255, 0.8); --surface-solid: #ffffff;
+  --primary: #1768d8; --primary-strong: #0f55b8; --primary-hover: #2b8cff; --primary-light: #1a6be0;
+  --text: #0b2550; --muted: #4d6482; --line: rgba(23, 80, 160, 0.16);
+  background: rgba(255, 255, 255, 0.7); color: var(--text);
+  border-top: 1px solid var(--line); box-shadow: none; margin-top: 0; border-radius: 0; z-index: auto;
+}
+.site-footer::before { display: none; }
+
+/* Rodapé mais baixo */
+html .site-footer { padding-top: 24px; padding-bottom: 22px; }
+
+/* ---------- Rodapé: logo à esquerda, direitos ao centro e, no canto direito, só os ícones de contato ---------- */
+html .footer-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; text-align: left; }
+html .footer-inner .brand { justify-self: start; }
+html .footer-inner p { grid-column: 2; text-align: center; margin: 0; }
+.foot-social { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 10px; }
+.foot-social a {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: #fff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+}
+.foot-social a:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(11, 37, 80, 0.22); }
+.foot-social svg { width: 20px; height: 20px; fill: currentColor; stroke: none; }
+.foot-social .fs-insta svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.foot-social .fs-zap { background: #25D366; }
+.foot-social .fs-insta { background: linear-gradient(45deg, #F58529 0%, #DD2A7B 42%, #8134AF 72%, #515BD4 100%); }
+.foot-social .fs-mail { background: #fff; border: 1px solid rgba(23, 80, 160, 0.16); }
+.foot-social .fs-mail img { width: 22px; height: auto; display: block; }
+@media (max-width: 760px) {
+  html .footer-inner { grid-template-columns: 1fr; justify-items: center; gap: 16px; text-align: center; }
+  html .footer-inner .brand { justify-self: center; }
+  html .footer-inner p { grid-column: 1; }
+  .foot-social { grid-column: 1; justify-self: center; }
+}

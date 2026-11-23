@@ -4,33 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Criação de Sites em Dourados | Aldem Gestão Estratégica</title>
-  <meta name="description" content="Criação de sites, landing pages e cardápios digitais para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica." />
-  <meta name="robots" content="index, follow" />
+  <script>
+    (function () {
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (nav && nav.type === 'back_forward') return;
+      if (window.location.hash) return;
+
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      function resetScrollPosition() {
+        if (window.location.hash) return;
+        var root = document.documentElement;
+        var body = document.body;
+        var rootBehavior = root.style.scrollBehavior;
+        var bodyBehavior = body.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        body.style.scrollBehavior = 'auto';
+        root.scrollTop = 0;
+        body.scrollTop = 0;
+        root.style.scrollBehavior = rootBehavior;
+        body.style.scrollBehavior = bodyBehavior;
+      }
+
+      resetScrollPosition();
+      window.addEventListener('DOMContentLoaded', resetScrollPosition);
+      window.addEventListener('load', function () {
+        resetScrollPosition();
+        window.setTimeout(resetScrollPosition, 150);
+        window.setTimeout(resetScrollPosition, 500);
+      });
+      window.addEventListener('pageshow', function () {
+        resetScrollPosition();
+        window.requestAnimationFrame(resetScrollPosition);
+        window.setTimeout(resetScrollPosition, 100);
+      });
+    })();
+  </script>
+  <meta name="description" content="Criação de sites e landing pages, aplicativos e painéis de indicadores para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica." />
   <link rel="canonical" href="https://www.aldemgestao.com.br/criacao-de-sites/dourados/" />
   <meta property="og:url" content="https://www.aldemgestao.com.br/criacao-de-sites/dourados/" />
+  <meta property="og:site_name" content="Aldem Gestão Estratégica" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content="Criação de Sites em Dourados | Aldem Gestão Estratégica" />
-  <meta property="og:description" content="Criação de sites, landing pages e cardápios digitais para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica." />
+  <meta property="og:description" content="Criação de sites e landing pages, aplicativos e painéis de indicadores para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Aldem Gestão Estratégica", "description": "Criação de sites e landing pages, aplicativos e painéis de indicadores para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica.", "telephone": "+5567996896426", "areaServed": {"@type": "City", "name": "Dourados"}, "serviceType": ["Criação de sites", "Landing pages", "Gestão de dados e indicadores"], "url": "https://www.aldemgestao.com.br/criacao-de-sites/dourados/"}
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="../../manifest.webmanifest" />
+  <meta name="application-name" content="ALDEM" />
+  <meta name="apple-mobile-web-app-title" content="ALDEM" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
   <link rel="stylesheet" href="../../assets/css/effects.css" />
+  <link rel="stylesheet" href="../../assets/css/gestao.css" />
   <link rel="stylesheet" href="../../assets/css/light.css" id="tema-claro" />
   <link rel="stylesheet" href="../../assets/css/tema.css" />
-  <link rel="stylesheet" href="../../assets/css/cidade.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {"@type": "ProfessionalService", "name": "Aldem Gestão Estratégica", "description": "Criação de sites, landing pages e cardápios digitais para empresas de Dourados-MS. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica.", "telephone": "+5567996896426", "areaServed": {"@type": "City", "name": "Dourados"}, "serviceType": ["Criação de sites", "Landing pages", "Cardápio digital", "Gestão de dados e indicadores"], "url": "https://www.aldemgestao.com.br/criacao-de-sites/dourados/"},
-      {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Vocês atendem empresas de Dourados?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O atendimento é feito online, por WhatsApp e reunião por vídeo, então a empresa de Dourados não precisa se deslocar. Do briefing à publicação, tudo é acompanhado à distância."}}, {"@type": "Question", "name": "Quanto custa um site para a minha empresa em Dourados?", "acceptedAnswer": {"@type": "Answer", "text": "O valor depende do que você precisa: site institucional, landing page, cardápio digital ou painel. Peça um orçamento pelo WhatsApp e informe o ramo da empresa; o valor é combinado antes de começar."}}, {"@type": "Question", "name": "Quanto tempo leva para ficar pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do tamanho do projeto. Uma landing page simples costuma ser bem mais rápida que um site completo. O prazo é combinado no orçamento, antes de qualquer pagamento."}}, {"@type": "Question", "name": "O site aparece no Google quando buscam em Dourados?", "acceptedAnswer": {"@type": "Answer", "text": "Todo site é entregue com a estrutura básica para o Google entender a empresa e a cidade onde ela atua. A posição na busca depende também do conteúdo, do tempo de site e de um perfil da empresa no Google bem preenchido, e ninguém consegue garantir o primeiro lugar."}}]}
-    ]
-  }
+  <link rel="stylesheet" href="../../assets/css/servicos.css" />
+  <link rel="stylesheet" href="../../assets/css/contato.css" />
+  <script>
+    document.documentElement.dataset.tema = 'claro';
   </script>
-  <script>document.documentElement.dataset.tema = 'claro';</script>
 </head>
 <body>
+
+  <!-- Ícones reutilizáveis (sprite) -->
   <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="g-logo" x1="0" y1="1" x2="0" y2="0">
@@ -74,17 +118,19 @@
     <symbol id="g-sync" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.5L3.5 9"/><path d="M3.5 4v5h5"/><path d="M4 13a8 8 0 0 0 14.3 4.5L20.5 15"/><path d="M20.5 20v-5h-5"/></symbol>
     <symbol id="g-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6 17v-5M10.5 17V8M15 17v-7M19.5 17V5"/></symbol>
   </svg>
+
+  <div id="topo" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a href="../../" class="brand" aria-label="Aldem Gestão Estratégica — início">
+      <a href="#topo" class="brand" aria-label="Aldem Gestão Estratégica — início">
         <img class="brand-logo" src="../../assets/img/logo-aldem-principal.png" alt="Aldem Gestão Estratégica" width="943" height="213" />
       </a>
 
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="../../">Início</a>
-        <a href="../../#servicos">Serviços</a>
-        <a href="../../#como-trabalhamos">Método</a>
-        <a href="../../#sobre">Sobre</a>
+        <a href="#topo" class="is-active">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-trabalhamos">Método</a>
+        <a href="#sobre">Sobre</a>
       </nav>
 
       <div class="header-acoes">
@@ -102,88 +148,278 @@
     </div>
 
     <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação celular" hidden>
-      <a href="../../">Início</a>
-      <a href="../../#servicos">Serviços</a>
-      <a href="../../#como-trabalhamos">Método</a>
-      <a href="../../#sobre">Sobre</a>
+      <a href="#topo">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#como-trabalhamos">Método</a>
+      <a href="#sobre">Sobre</a>
     </nav>
   </header>
 
   <main>
-    <section class="cid-hero">
-      <div class="wrap">
-        <p class="cid-eyebrow">Dourados · MS</p>
-        <h1>Criação de sites em Dourados</h1>
-        <p class="cid-lead">Sites, landing pages e cardápios digitais para empresas de Dourados e região. Atendimento online, do primeiro contato à publicação.</p>
-        <div class="cid-acoes">
-          <a class="btn btn-whats btn-cta" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20site%20para%20minha%20empresa%20em%20Dourados." target="_blank" rel="noopener noreferrer">Pedir orçamento pelo WhatsApp</a>
-          <a class="cid-link" href="../../#projetos">Ver projetos</a>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-light" aria-hidden="true"></div>
+      <div class="wrap hero-center">
+        <p class="mono-tag hero-in" style="--d:0s"><b>ALDEM</b> / criação de sites em Dourados<i class="caret">_</i></p>
+        <h1 class="words" aria-label="Presença que vende e gestão que decide.">
+          <span class="w" style="--i:0">Presença</span>
+          <span class="w" style="--i:1">que</span>
+          <span class="w" style="--i:2">vende</span><br />
+          <span class="w accent" style="--i:3">e</span>
+          <span class="w accent" style="--i:4">gestão</span>
+          <span class="w accent" style="--i:5">que</span>
+          <span class="w accent" style="--i:6">decide.</span>
+        </h1>
+        <p class="hero-description hero-in" style="--d:.75s">Sites, landing page, dashboard, análise de dados e IA aplicada para empresas de Dourados que querem crescer com eficiência.</p>
+        <p class="hero-cycle hero-in" style="--d:.9s" aria-hidden="true">
+          Para quem precisa de
+          <span class="cycle"><span class="cycle-list">
+            <span>presença digital</span>
+            <span>controle financeiro</span>
+            <span>automação de rotinas</span>
+            <span>painel de indicadores</span>
+            <span>presença digital</span>
+          </span></span>
+        </p>
+        <div class="hero-actions hero-in" style="--d:1.05s">
+          <a href="#servicos" class="btn btn-primary" data-magnetic>
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
+            Conheça nossos serviços
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="cid-sec">
-      <div class="wrap cid-grid">
-        <div>
-          <h2>O que fazemos para empresas de Dourados</h2>
-          <p>Dourados é o segundo maior polo do estado, com agronegócio, comércio e serviços atendendo uma grande região. Quem atende uma região inteira precisa ser encontrado por clientes de outras cidades: o site é a vitrine que trabalha 24 horas.</p>
-          <p>A Aldem Gestão Estratégica une presença digital e gestão: além do site, ajudamos a organizar os dados da empresa em painéis de indicadores, para decidir com números.</p>
-        </div>
-        <ul class="cid-cards">
-          <li><b>Site institucional</b><span>Apresenta a empresa, os serviços e o contato, com visual profissional.</span></li>
-          <li><b>Landing page</b><span>Uma página focada em um serviço ou campanha, pensada para gerar contatos.</span></li>
-          <li><b>Cardápio e catálogo digital</b><span>Para restaurantes, lojas e prestadores mostrarem produtos e receberem pedidos.</span></li>
-          <li><b>Painéis e sistemas</b><span>Indicadores e aplicativos sob medida para acompanhar a operação.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="cid-sec cid-alt">
+    <section id="servicos" class="svc-sec">
       <div class="wrap">
-        <h2>Negócios que mais se beneficiam em Dourados</h2>
-        <ul class="cid-seg"><li>empresas do agronegócio</li><li>comércio e lojas</li><li>clínicas e serviços</li><li>indústrias e fornecedores</li></ul>
-        <p class="cid-nota">Não atende a nenhum desses ramos? Sem problema: o projeto é feito sob medida para o seu tipo de negócio.</p>
+        <div class="svc-head g-reveal">
+          <div class="eyebrow">Gestão externa</div>
+          <h2>Para você vender mais.</h2>
+          <p>Como o seu cliente encontra, conhece e fala com você.</p>
+        </div>
+        <div class="svc-grid">
+        <article class="svc-card g-reveal">
+          <span class="svc-label">Site completo</span>
+          <span class="svc-ico" aria-hidden="true"><svg><use href="#g-globe" /></svg></span>
+          <h3>Site institucional</h3>
+          <p class="svc-desc">Apresenta a sua empresa em várias páginas: serviços, quem somos e contato.</p>
+          <ul class="svc-list">
+            <li>Foco em apresentar a empresa e passar credibilidade</li>
+            <li>Conteúdo e estrutura profissional</li>
+            <li>Acompanhamento mensal (opcional)</li>
+            <li>Domínio suaempresa.com.br</li>
+          </ul>
+          <a class="svc-btn" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20site%20institucional." target="_blank" rel="noopener noreferrer">Quero um site institucional <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="svc-card svc-rec g-reveal">
+          <span class="svc-badge">Mais vendido</span>
+          <span class="svc-ico" aria-hidden="true"><svg><use href="#g-monitor" /></svg></span>
+          <h3>Landing page</h3>
+          <p class="svc-desc">Uma página focada em divulgar um serviço ou produto, pensada para transformar visitas em contatos.</p>
+          <ul class="svc-list">
+            <li>Foco em converter visitas em vendas</li>
+            <li>Conteúdo e estrutura profissional</li>
+            <li>Acompanhamento mensal (opcional)</li>
+            <li>Domínio suaempresa.com.br</li>
+          </ul>
+          <a class="svc-btn" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20landing%20page." target="_blank" rel="noopener noreferrer">Quero uma landing page <span aria-hidden="true">→</span></a>
+        </article>
+        </div>
       </div>
     </section>
 
-    <section class="cid-sec">
-      <div class="wrap cid-passos">
-        <h2>Como funciona o atendimento em Dourados</h2>
-        <ol>
-          <li><b>Conversa pelo WhatsApp</b><span>Você conta o que precisa e recebe um orçamento.</span></li>
-          <li><b>Reunião por vídeo</b><span>Definimos conteúdo, visual e o que o site precisa fazer pelo seu negócio.</span></li>
-          <li><b>Desenvolvimento e ajustes</b><span>Você acompanha o projeto e pede os ajustes antes de publicar.</span></li>
-          <li><b>Publicação e acompanhamento</b><span>Site no ar, e acompanhamento mensal para manter tudo funcionando.</span></li>
+    <section id="servicos-int" class="svc-sec svc-int">
+      <div class="wrap">
+        <div class="svc-head g-reveal">
+          <div class="eyebrow">Gestão interna</div>
+          <h2>Para você operar melhor.</h2>
+          <p>Como a sua empresa organiza, acompanha e decide.</p>
+        </div>
+        <div class="svc-grid">
+        <article class="svc-card g-reveal">
+          <span class="svc-label">Para a operação</span>
+          <span class="svc-ico" aria-hidden="true"><svg><use href="#g-phone" /></svg></span>
+          <h3>Aplicativo e automação</h3>
+          <p class="svc-desc">Aplicativos sob medida e rotinas automáticas para organizar o dia a dia da empresa.</p>
+          <ul class="svc-list">
+            <li>Aplicativo operacional</li>
+            <li>Automação de processos</li>
+            <li>Controle de vendas, clientes e estoque</li>
+            <li>Acompanhamento mensal (opcional)</li>
+          </ul>
+          <a class="svc-btn" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20da%20minha%20empresa." target="_blank" rel="noopener noreferrer">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="svc-card g-reveal">
+          <span class="svc-label">Para a gestão</span>
+          <span class="svc-ico" aria-hidden="true"><svg><use href="#g-chart" /></svg></span>
+          <h3>Painel de indicadores</h3>
+          <p class="svc-desc">Os números da empresa organizados em um só lugar, para decisão baseada em dados.</p>
+          <ul class="svc-list">
+            <li>Dashboard e análise de dados</li>
+            <li>Dados dos setores conectados</li>
+            <li>Reunião de resultados</li>
+            <li>Acompanhamento mensal (opcional)</li>
+          </ul>
+          <a class="svc-btn" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20da%20minha%20empresa." target="_blank" rel="noopener noreferrer">Solicitar diagnóstico <span aria-hidden="true">→</span></a>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS (portfólio) -->
+    <section id="projetos" class="g-section">
+      <div class="wrap">
+        <div class="g-section-head g-reveal">
+          <div class="eyebrow">Portfólio</div>
+          <h2>Alguns dos nossos projetos.</h2>
+          <p>Presença digital desenvolvida pela ALDEM.</p>
+        </div>
+
+        <div class="pf-grid">
+          <a class="pf-card g-reveal" href="https://www.padocareal.com.br" target="_blank" rel="noopener noreferrer" aria-label="Padaria: abrir o site em uma nova aba">
+            <span class="pf-cover">
+              <span class="pf-bar"><i></i><i></i><i></i><span>padocareal.com.br</span></span>
+              <span class="pf-shot"><img src="../../assets/img/portfolio/padoca-real.jpg" alt="Primeira tela do site da Padaria" width="1280" height="800" loading="lazy" /></span>
+            </span>
+            <span class="pf-info">
+              <span class="pf-tag">Landing page</span>
+              <strong>Padaria</strong>
+              <span class="pf-go">Ver o site <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></span>
+            </span>
+          </a>
+
+          <a class="pf-card g-reveal" href="https://pizzariareal.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Pizzaria: abrir o site em uma nova aba">
+            <span class="pf-cover">
+              <span class="pf-bar"><i></i><i></i><i></i><span>pizzaria.vercel.app</span></span>
+              <span class="pf-shot"><img src="../../assets/img/portfolio/pizzaria-real.jpg" alt="Primeira tela do site da Pizzaria" width="1280" height="800" loading="lazy" /></span>
+            </span>
+            <span class="pf-info">
+              <span class="pf-tag">Landing page</span>
+              <strong>Pizzaria</strong>
+              <span class="pf-go">Ver o site <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></span>
+            </span>
+          </a>
+          <!-- App interno: sem link (acesso restrito à equipe do cliente) -->
+          <div class="pf-card pf-static g-reveal">
+            <span class="pf-cover">
+              <span class="pf-bar"><i></i><i></i><i></i><span>appinterno.com.br</span></span>
+              <span class="pf-shot"><img src="../../assets/img/portfolio/app-operacional.jpg" alt="Tela inicial do app operacional da Transportadora" width="1280" height="800" loading="lazy" /></span>
+            </span>
+            <span class="pf-info">
+              <span class="pf-tag">App operacional</span>
+              <strong>Transportadora</strong>
+              <span class="pf-lock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Acesso restrito</span>
+            </span>
+          </div>
+
+          <a class="pf-card g-reveal" href="https://pizzariareal.vercel.app/cardapio.html" target="_blank" rel="noopener noreferrer" aria-label="Cardápio digital da Pizzaria: abrir em uma nova aba">
+            <span class="pf-cover">
+              <span class="pf-bar"><i></i><i></i><i></i><span>pizzaria.vercel.app/cardapio</span></span>
+              <span class="pf-shot"><img src="../../assets/img/portfolio/pizzaria-real-cardapio.jpg" alt="Cardápio digital da Pizzaria" width="1280" height="800" loading="lazy" /></span>
+            </span>
+            <span class="pf-info">
+              <span class="pf-tag">Cardápio digital</span>
+              <strong>Pizzaria</strong>
+              <span class="pf-go">Ver o cardápio <svg class="ico" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-trabalhamos" class="section results">
+      <div class="wrap">
+        <div class="eyebrow">Método PDCA</div>
+        <h2>Melhoria contínua, ciclo após ciclo.</h2>
+        <ol class="pdca-tl">
+          <li class="tl-item"><div class="tl-text"><h3>Planejar</h3><p>Conhecer seu negócio e definir objetivos, indicadores e prioridades do ciclo.</p></div><span class="tl-node" aria-hidden="true">1</span></li>
+          <li class="tl-item"><div class="tl-text"><h3>Fazer</h3><p>Colocar o planejamento em prática aplicando as ferramentas desenvolvidas para sua empresa.</p></div><span class="tl-node" aria-hidden="true">2</span></li>
+          <li class="tl-item"><div class="tl-text"><h3>Verificar</h3><p>Acompanhar os indicadores e comparar o resultado com a meta combinada.</p></div><span class="tl-node" aria-hidden="true">3</span></li>
+          <li class="tl-item"><div class="tl-text"><h3>Agir</h3><p>Padronizar o que funcionou, corrigir o que falhou e planejar o próximo ciclo.</p></div><span class="tl-node" aria-hidden="true">4</span></li>
         </ol>
+        <p class="process-note"><b>Depois da entrega,</b> o acompanhamento mensal mantém tudo funcionando: manutenção, atualização de dados, ajustes e reunião de resultados.</p>
       </div>
     </section>
 
-    <section class="cid-sec cid-alt">
-      <div class="wrap cid-faq">
-        <h2>Perguntas frequentes</h2>
-        <details><summary>Vocês atendem empresas de Dourados?</summary><p>Sim. O atendimento é feito online, por WhatsApp e reunião por vídeo, então a empresa de Dourados não precisa se deslocar. Do briefing à publicação, tudo é acompanhado à distância.</p></details><details><summary>Quanto custa um site para a minha empresa em Dourados?</summary><p>O valor depende do que você precisa: site institucional, landing page, cardápio digital ou painel. Peça um orçamento pelo WhatsApp e informe o ramo da empresa; o valor é combinado antes de começar.</p></details><details><summary>Quanto tempo leva para ficar pronto?</summary><p>Depende do tamanho do projeto. Uma landing page simples costuma ser bem mais rápida que um site completo. O prazo é combinado no orçamento, antes de qualquer pagamento.</p></details><details><summary>O site aparece no Google quando buscam em Dourados?</summary><p>Todo site é entregue com a estrutura básica para o Google entender a empresa e a cidade onde ela atua. A posição na busca depende também do conteúdo, do tempo de site e de um perfil da empresa no Google bem preenchido, e ninguém consegue garantir o primeiro lugar.</p></details>
+    <!-- SOBRE -->
+    <section id="sobre" class="section about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow eyebrow-plain">Aldem Gestão Estratégica</div>
+          <h2>Presença digital, processos automatizados, gestão mais eficiente.</h2>
+          <p class="about-text">A ALDEM nasceu para facilitar a tomada de decisão da gestão, utilizando a tecnologia. Unimos análise de dados, automação e visão estratégica para transformar informação em ação e objetivos em resultados concretos.</p>
+          <p class="about-text">Antes de falar em ferramentas, queremos entender como a sua empresa funciona e o que pesa nas suas decisões.</p>
+          <p class="about-text">Dourados é o segundo maior polo do estado, com agronegócio, comércio e serviços atendendo uma grande região. Quem atende uma região inteira precisa ser encontrado por clientes de outras cidades: o site é a vitrine que trabalha 24 horas.</p>
+          <a href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%21" target="_blank" rel="noopener noreferrer" class="link-underline mt-6">Conheça um novo jeito de avançar
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+          </a>
+        </div>
+        <div class="about-points">
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>Missão</h3><p>Facilitar a tomada de decisão da gestão por meio de dados, estratégia e automação.</p></div>
+          </div>
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>Visão</h3><p>Consolidar a ALDEM como referência em Gestão Estratégica no Brasil.</p></div>
+          </div>
+          <div class="about-point">
+            <svg class="ico" aria-hidden="true"><use href="#i-check" /></svg>
+            <div><h3>Valores</h3><p>Atitude de dono, Disciplina, Disponibilidade, Transparência.</p></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="cid-sec cid-fim">
-      <div class="wrap">
-        <h2>Vamos colocar a sua empresa de Dourados na internet?</h2>
-        <a class="btn btn-whats btn-cta" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20site%20para%20minha%20empresa%20em%20Dourados." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
-        <p class="cid-outras"><span>Também atendemos:</span> <a href="../campo-grande/">Sites em Campo Grande</a><a href="../tres-lagoas/">Sites em Três Lagoas</a><a href="../corumba/">Sites em Corumbá</a><a href="../ponta-pora/">Sites em Ponta Porã</a><a href="../navirai/">Sites em Naviraí</a><a href="../nova-andradina/">Sites em Nova Andradina</a> <a href="../">Todas as cidades</a></p>
+    <!-- CHAMADA FINAL -->
+    <section id="contato" class="cta-final">
+      <div class="cta-marquee" aria-hidden="true">
+        <div><span>vamos conversar</span><span>vamos conversar</span><span>vamos conversar</span><span>vamos conversar</span></div>
+        <div><span>sua empresa organizada</span><span>sua empresa organizada</span><span>sua empresa organizada</span><span>sua empresa organizada</span></div>
+      </div>
+
+      <div class="wrap cta-inner cta-split">
+        <div class="cta-texto">
+          <h2 class="cta-title">A sua empresa merece<br />uma gestão <span class="cta-mark">estratégica<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 17 C 70 5, 160 4, 296 12" /></svg></span></h2>
+          <p class="cta-lead">Conte como funciona o seu negócio em Dourados.</p>
+        </div>
+
+        <form class="cta-form" id="form-contato">
+          <label for="ct-nome">Nome completo</label>
+          <input id="ct-nome" name="nome" type="text" autocomplete="name" required />
+          <label for="ct-email">E-mail</label>
+          <input id="ct-email" name="email" type="text" inputmode="email" autocomplete="email" />
+          <label for="ct-empresa">Empresa</label>
+          <input id="ct-empresa" name="empresa" type="text" autocomplete="organization" />
+          <label for="ct-msg">Mensagem</label>
+          <textarea id="ct-msg" name="mensagem" rows="3" required></textarea>
+          <button class="cta-enviar" type="submit">Enviar mensagem</button>
+          <p class="cta-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <a href="../../" class="brand" aria-label="Aldem Gestão Estratégica — início">
-        <img class="brand-logo" src="../../assets/img/logo-aldem.png" alt="Aldem Gestão Estratégica" width="943" height="213" />
+      <a href="#topo" class="brand" aria-label="Aldem Gestão Estratégica — início">
+        <img class="brand-logo" src="../../assets/img/logo-aldem-principal.png" alt="Aldem Gestão Estratégica" width="943" height="213" />
       </a>
       <p>© 2026 Aldem Gestão Estratégica. Todos os direitos reservados.</p>
+      <div class="foot-social">
+        <a class="fs-zap" href="https://wa.me/5567996896426?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%21" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><svg  viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.830c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29z"/></svg></a>
+        <a class="fs-insta" href="https://www.instagram.com/aldem.gestao/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.6" fill="currentColor"/></svg></a>
+        <a class="fs-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aldem.gestao@gmail.com&amp;su=Contato%20pelo%20site&amp;body=Ol%C3%A1%2C%20equipe%20Aldem!%20Gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20o%20meu%20neg%C3%B3cio.%0D%0A%0D%0ANome%3A%0D%0AEmpresa%3A%0D%0AO%20que%20preciso%3A" target="_blank" rel="noopener noreferrer" aria-label="E-mail" title="E-mail"><img src="../../assets/img/email.png" alt="" width="24" height="18" /></a>
+      </div>
     </div>
   </footer>
 
+
   <script src="../../assets/js/script.js"></script>
+  <script src="../../assets/js/effects.js"></script>
+  <script src="../../assets/js/gestao.js"></script>
   <script src="../../assets/js/tema.js"></script>
 </body>
 </html>
