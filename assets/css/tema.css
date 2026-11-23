@@ -32,3 +32,8 @@ html[data-tema="escuro"] .tema-sol { display: block; }
 @media (hover: none), (max-width: 900px) {
   .hero-light { display: none; }
 }
+
+/* Faixas com o azul da marca (translúcido, funciona nos dois temas) */
+:root { --faixa: rgba(43, 140, 255, 0.10); }
+#projetos, #como-trabalhamos, .site-footer { background: var(--faixa); }
+html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
