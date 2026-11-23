@@ -76,3 +76,13 @@ html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
 
 /* Cabeçalho (logo, menu, botões, WhatsApp) rola junto com a página, sem ficar preso no topo */
 .site-header { position: relative; }
+
+/* Faixa de palavras que passam: versão azul (escura) nos dois temas */
+.features {
+  --text: #ffffff; --muted: #a9bdd6; --line: rgba(120, 170, 255, 0.2);
+  background: #071f3d; color: #fff;
+}
+.features .fx-marquee span {
+  background: rgba(14, 52, 104, 0.45); border-color: rgba(140, 200, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06); color: #fff;
+}
