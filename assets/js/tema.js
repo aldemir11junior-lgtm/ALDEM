@@ -7,7 +7,7 @@
   function aplicar(t) {
     html.dataset.tema = t;
     link.disabled = (t === 'escuro');
-    document.querySelectorAll('.brand-logo').forEach(function (img) { img.src = LOGO[t]; });
+    document.querySelectorAll('.site-header .brand-logo').forEach(function (img) { img.src = LOGO[t]; });
     if (btn) btn.setAttribute('aria-label', t === 'escuro' ? 'Mudar para o tema claro' : 'Mudar para o tema escuro');
   }
 

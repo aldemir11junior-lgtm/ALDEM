@@ -37,3 +37,28 @@ html[data-tema="escuro"] .tema-sol { display: block; }
 :root { --faixa: rgba(43, 140, 255, 0.10); }
 #projetos, #como-trabalhamos, .site-footer { background: var(--faixa); }
 html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
+
+/* Faixas azul-marinho do tema escuro, nos dois temas (Portfólio, PDCA e rodapé).
+   Dentro delas valem as cores do tema escuro (texto branco, cartões escuros). */
+#projetos, #como-trabalhamos, .site-footer {
+  --bg: #04152b; --bg-2: #071f3d;
+  --surface: rgba(14, 52, 104, 0.35); --surface-solid: #0a2a54;
+  --primary: #2b8cff; --primary-strong: #1768d8; --primary-hover: #4a9dff; --primary-light: #8cc8ff;
+  --text: #ffffff; --muted: #a9bdd6; --line: rgba(120, 170, 255, 0.2);
+  --glow: 0 0 40px rgba(43, 140, 255, 0.35);
+  background: #071f3d;
+  color: var(--text);
+}
+#projetos .pf-card, #como-trabalhamos .process-note, #como-trabalhamos .service-icon-frame {
+  background: var(--surface); border-color: var(--line); box-shadow: none;
+}
+#projetos a.pf-card:hover, #projetos a.pf-card:focus-visible { border-color: rgba(43, 140, 255, 0.6); box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35); }
+#projetos .pf-soon { background: rgba(14, 52, 104, 0.2); }
+#projetos .pf-soon .pf-tag { background: rgba(120, 170, 255, 0.12); }
+#projetos .pf-soon .pf-info strong { color: #7f96b5; }
+#projetos .pf-empty { color: #7f96b5; background: repeating-linear-gradient(135deg, rgba(120, 170, 255, 0.07) 0 10px, transparent 10px 20px), #0a2a54; }
+#projetos .pf-bar { background: rgba(120, 170, 255, 0.14); }
+#projetos .pf-bar i { background: rgba(120, 170, 255, 0.35); }
+#projetos .pf-shot { background: #0a2a54; }
+#como-trabalhamos .step:not(.on) h3 { color: #6f87a8; }
+#como-trabalhamos [data-fill] .fw { color: rgba(255, 255, 255, 0.22); }
