@@ -15,3 +15,10 @@ html[data-tema="escuro"] .tema-lua { display: none; }
 html[data-tema="escuro"] .tema-sol { display: block; }
 
 .header-acoes { display: flex; align-items: center; gap: 12px; }
+
+/* Seções alternadas: faixas com fundos diferentes (funciona nos dois temas via --bg-2) */
+#servicos { background: transparent; }
+#projetos { background: var(--bg-2); border-block: 1px solid var(--line); }
+#decisao { background: transparent; border-top: 0; }
+#como-trabalhamos { background: var(--bg-2); border-block: 1px solid var(--line); }
+.dd + .results { padding-top: 100px; }
