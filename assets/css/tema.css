@@ -22,3 +22,4 @@ html[data-tema="escuro"] .tema-sol { display: block; }
 #decisao { background: transparent; border-top: 0; }
 #como-trabalhamos { background: var(--bg-2); border-block: 1px solid var(--line); }
 .dd + .results { padding-top: 100px; }
+.site-footer { background: var(--bg-2); }
