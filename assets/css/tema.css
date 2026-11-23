@@ -86,3 +86,355 @@ html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
   background: rgba(14, 52, 104, 0.45); border-color: rgba(140, 200, 255, 0.22);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06); color: #fff;
 }
+
+/* ---------- Segunda tela "chegando": folha com cantos arredondados espiando no fim da primeira tela ---------- */
+/* A primeira tela ocupa (altura da janela − cabeçalho − "espiada" da folha); vale para monitor, notebook e celular */
+:root { --peek: clamp(64px, 10svh, 104px); --cab: 92px; }
+@media (max-width: 640px) { :root { --cab: 76px; --peek: clamp(56px, 9svh, 84px); } }
+.hero { min-height: 0; height: calc(100svh - var(--cab) - var(--peek)); }
+#servicos {
+  position: relative; z-index: 2;
+  background: var(--surface-solid);
+  border-radius: 44px 44px 0 0;
+  box-shadow: 0 -18px 50px rgba(11, 37, 80, 0.14), inset 0 1px 0 rgba(140, 200, 255, 0.35);
+}
+html[data-tema="escuro"] #servicos { box-shadow: 0 -18px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(140, 200, 255, 0.25); }
+/* alça no topo da folha, sugerindo que ela sobe */
+#servicos::before {
+  content: ''; position: absolute; top: 12px; left: 50%; translate: -50% 0;
+  width: 56px; height: 5px; border-radius: 999px;
+  background: var(--primary); opacity: 0.4; pointer-events: none;
+}
+@media (max-width: 640px) { #servicos { border-radius: 30px 30px 0 0; } }
+
+/* ---------- Terceira tela (Portfólio) chegando por cima da segunda, também como folha arredondada ---------- */
+#servicos { padding-bottom: 56px; }
+#projetos {
+  position: relative; z-index: 3;
+  margin-top: -44px;
+  border-block: 0;
+  border-radius: 44px 44px 0 0;
+  box-shadow: 0 -18px 50px rgba(11, 37, 80, 0.18), inset 0 1px 0 rgba(140, 200, 255, 0.3);
+}
+#projetos::before {
+  content: ''; position: absolute; top: 12px; left: 50%; translate: -50% 0;
+  width: 56px; height: 5px; border-radius: 999px;
+  background: var(--primary-light); opacity: 0.45; pointer-events: none;
+}
+@media (max-width: 640px) {
+  #servicos { padding-bottom: 40px; }
+  #projetos { margin-top: -30px; border-radius: 30px 30px 0 0; }
+}
+
+/* ---------- Efeito "folha chegando" em todas as seções seguintes ----------
+   Ordem: Serviços (clara) → Portfólio (azul) → Gestão interna (clara) → PDCA (azul) → Sobre (clara) → Contato → Rodapé (azul) */
+#decisao, #sobre, #contato, .site-footer {
+  position: relative;
+  margin-top: -44px;
+  border-radius: 44px 44px 0 0;
+  box-shadow: 0 -18px 50px rgba(11, 37, 80, 0.16), inset 0 1px 0 rgba(140, 200, 255, 0.3);
+}
+#como-trabalhamos {
+  position: relative; z-index: 3; margin-top: -44px; border-block: 0;
+  border-radius: 44px 44px 0 0;
+  box-shadow: 0 -18px 50px rgba(11, 37, 80, 0.18), inset 0 1px 0 rgba(140, 200, 255, 0.3);
+}
+#decisao { z-index: 4; background: var(--surface-solid); }
+#sobre { z-index: 6; background: var(--surface-solid); border-top: 0; }
+#contato { z-index: 7; background-color: var(--bg); }
+.site-footer { z-index: 8; border-top: 0; }
+/* alça no topo de cada folha */
+#decisao::before, #como-trabalhamos::before, #sobre::before, #contato::before, .site-footer::before {
+  content: ''; position: absolute; top: 12px; left: 50%; translate: -50% 0;
+  width: 56px; height: 5px; border-radius: 999px;
+  background: var(--primary); opacity: 0.4; pointer-events: none; z-index: 1;
+}
+#como-trabalhamos::before, .site-footer::before { background: var(--primary-light); opacity: 0.45; }
+/* a seção de baixo sobe 44px: a de cima precisa de respiro para os cantos não cortarem conteúdo */
+#projetos { padding-bottom: 148px; }
+#decisao { padding-bottom: 104px; }
+#como-trabalhamos { padding-bottom: 148px; }
+#sobre { padding-bottom: 104px; }
+.site-footer { padding-top: 64px; }
+@media (max-width: 640px) {
+  #decisao, #como-trabalhamos, #sobre, #contato, .site-footer { margin-top: -30px; border-radius: 30px 30px 0 0; }
+  #projetos, #como-trabalhamos { padding-bottom: 110px; }
+  #decisao, #sobre { padding-bottom: 80px; }
+}
+
+/* Rodapé: sem efeito de folha */
+.site-footer { margin-top: 0; border-radius: 0; box-shadow: none; padding-top: 36px; }
+.site-footer::before { display: none; }
+@media (max-width: 640px) { .site-footer { margin-top: 0; border-radius: 0; } }
+
+/* Fale com a gente: sem efeito de folha */
+#contato { margin-top: 0; border-radius: 0; box-shadow: none; background-color: transparent; z-index: auto; }
+#contato::before { display: none; }
+#sobre { padding-bottom: 100px; }
+@media (max-width: 640px) { #contato { margin-top: 0; border-radius: 0; } #sobre { padding-bottom: 72px; } }
+
+/* Sobre: cor padrão de antes (degradê original), com base opaca só para a folha cobrir a seção de cima */
+#sobre { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(10, 42, 84, 0.5), rgba(4, 21, 43, 0)); }
+html:not([data-tema="escuro"]) #sobre { background-image: linear-gradient(180deg, rgba(220, 234, 252, 0.7), rgba(244, 248, 254, 0)); }
+
+/* Serviços e Gestão interna: mesmo fundo padrão do site (igual ao do corpo da página), agora opaco para a folha cobrir a seção de cima */
+#servicos, #decisao {
+  background:
+    radial-gradient(900px 600px at 80% 8%, rgba(43, 140, 255, 0.14), transparent 60%),
+    radial-gradient(700px 500px at 0% 40%, rgba(23, 104, 216, 0.08), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+html[data-tema="escuro"] #servicos, html[data-tema="escuro"] #decisao {
+  background:
+    radial-gradient(900px 600px at 80% 8%, rgba(43, 140, 255, 0.22), transparent 60%),
+    radial-gradient(700px 500px at 0% 40%, rgba(23, 104, 216, 0.14), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   SEÇÕES EM CARTÕES (da segunda tela em diante): cada seção é um cartão arredondado
+   sobre o fundo da página, com respiro nas laterais e entre eles (substitui o efeito de folha).
+   ========================================================================== */
+:root { --gap-card: clamp(12px, 1.6vw, 24px); --raio-card: clamp(26px, 3vw, 44px); }
+
+#servicos, #projetos, #decisao, #como-trabalhamos, #sobre {
+  position: relative; z-index: auto;
+  margin: 0 var(--gap-card) var(--gap-card);
+  border: 1px solid var(--line);
+  border-radius: var(--raio-card);
+  box-shadow: 0 18px 50px rgba(11, 37, 80, 0.08);
+  transform: none;
+}
+#servicos::before, #projetos::before, #decisao::before, #como-trabalhamos::before, #sobre::before { display: none; }
+
+/* cartões claros (translúcidos sobre o fundo do site) */
+#servicos, #decisao, #sobre {
+  background: rgba(255, 255, 255, 0.62);
+  background-attachment: scroll;
+}
+html[data-tema="escuro"] #servicos, html[data-tema="escuro"] #decisao, html[data-tema="escuro"] #sobre {
+  background: rgba(14, 52, 104, 0.28);
+}
+/* cartões azul-marinho (continuam com texto claro) */
+#projetos, #como-trabalhamos { background: #071f3d; border-color: rgba(120, 170, 255, 0.2); box-shadow: 0 22px 60px rgba(4, 21, 43, 0.28); }
+
+/* o cartão de Serviços: o primeiro, logo abaixo da primeira tela */
+#servicos { margin-top: 0; padding-bottom: 0; }
+#projetos, #como-trabalhamos { padding-bottom: 104px; }
+#decisao { padding-bottom: 56px; }
+#sobre { padding-bottom: 100px; }
+.dd + .results { padding-top: 100px; }
+@media (max-width: 640px) {
+  #projetos, #como-trabalhamos { padding-bottom: 72px; }
+  #sobre { padding-bottom: 72px; }
+  #servicos, #projetos, #decisao, #como-trabalhamos, #sobre { margin-inline: 10px; margin-bottom: 10px; }
+}
+
+/* ==========================================================================
+   Cartões COM o efeito de entrada: cada cartão chega por cima do anterior (sobreposição + alça + sombra para cima)
+   ========================================================================== */
+#projetos, #decisao, #como-trabalhamos, #sobre { margin-top: -44px; }
+#servicos { z-index: 2; padding-bottom: 56px; }
+#projetos { z-index: 3; padding-bottom: 148px; }
+#decisao { z-index: 4; padding-bottom: 100px; }
+#como-trabalhamos { z-index: 5; padding-bottom: 148px; }
+#sobre { z-index: 6; }
+/* fundos opacos (a folha cobre o cartão de cima) — mesmas cores de antes, só sem transparência */
+#servicos, #decisao, #sobre { background: #f9fbff; }
+html[data-tema="escuro"] #servicos, html[data-tema="escuro"] #decisao, html[data-tema="escuro"] #sobre { background: #0a2547; }
+#sobre { background-image: linear-gradient(180deg, rgba(220, 234, 252, 0.7), rgba(244, 248, 254, 0)); }
+html[data-tema="escuro"] #sobre { background-image: linear-gradient(180deg, rgba(10, 42, 84, 0.5), rgba(4, 21, 43, 0)); }
+#servicos, #projetos, #decisao, #como-trabalhamos, #sobre {
+  box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.14), 0 18px 50px rgba(11, 37, 80, 0.08);
+}
+#projetos, #como-trabalhamos { box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2), 0 22px 60px rgba(4, 21, 43, 0.28); }
+/* alça no topo de cada cartão */
+#servicos::before, #projetos::before, #decisao::before, #como-trabalhamos::before, #sobre::before {
+  display: block; content: ''; position: absolute; top: 12px; left: 50%; translate: -50% 0;
+  width: 56px; height: 5px; border-radius: 999px; background: var(--primary); opacity: 0.4; pointer-events: none; z-index: 1;
+}
+#projetos::before, #como-trabalhamos::before { background: var(--primary-light); opacity: 0.45; }
+@media (max-width: 640px) {
+  #projetos, #decisao, #como-trabalhamos, #sobre { margin-top: -30px; }
+  #servicos { padding-bottom: 40px; }
+  #projetos, #como-trabalhamos { padding-bottom: 110px; }
+  #decisao { padding-bottom: 80px; }
+}
+
+/* Os cartões não "terminam": embaixo são retos e seguem por baixo do próximo, que chega por cima com os cantos de cima arredondados */
+#servicos, #projetos, #decisao, #como-trabalhamos, #sobre {
+  border-radius: var(--raio-card) var(--raio-card) 0 0;
+  border-bottom-width: 0;
+  margin-bottom: 0;
+}
+#servicos, #projetos, #decisao, #como-trabalhamos, #sobre {
+  box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.14);
+}
+#projetos, #como-trabalhamos { box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2); }
+@media (max-width: 640px) { #servicos, #projetos, #decisao, #como-trabalhamos, #sobre { margin-bottom: 0; } }
+
+/* Gestão interna: tela normal, sem cartão nem efeito de chegada (fundo padrão do site) */
+html #decisao {
+  margin: 0; z-index: auto; border: 0; border-radius: 0; box-shadow: none;
+  background: transparent; padding-bottom: 100px;
+}
+#decisao::before { display: none; }
+#projetos { padding-bottom: 104px; }
+@media (max-width: 640px) { #decisao { margin: 0; padding-bottom: 80px; } #projetos { padding-bottom: 72px; } }
+
+/* ---------- Método PDCA: linha do tempo horizontal (1 e 3 acima, 2 e 4 abaixo), etapa por etapa ---------- */
+#como-trabalhamos .pdca-tl {
+  list-style: none; margin: 64px 0 0; padding: 0; position: relative;
+  display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto 64px auto;
+}
+/* trilho e preenchimento da linha, ao meio */
+#como-trabalhamos .pdca-tl::before, #como-trabalhamos .pdca-tl::after {
+  content: ''; grid-row: 2; grid-column: 1 / -1; align-self: center; height: 2px;
+}
+#como-trabalhamos .pdca-tl::before { background: rgba(255, 255, 255, 0.16); }
+#como-trabalhamos .pdca-tl::after { background: var(--primary-light); transform-origin: 0 50%; transform: scaleX(0); }
+#como-trabalhamos .tl-item {
+  grid-row: 1 / 4; display: grid; grid-template-rows: subgrid; justify-items: center; text-align: center; padding-inline: 18px;
+  position: relative;
+}
+#como-trabalhamos .tl-item:nth-child(1) { grid-column: 1; } #como-trabalhamos .tl-item:nth-child(2) { grid-column: 2; }
+#como-trabalhamos .tl-item:nth-child(3) { grid-column: 3; } #como-trabalhamos .tl-item:nth-child(4) { grid-column: 4; }
+#como-trabalhamos .tl-node {
+  grid-row: 2; align-self: center; position: relative; z-index: 2;
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: #071f3d; border: 2px solid rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.6);
+  font-size: 15px; font-weight: 600;
+}
+#como-trabalhamos .tl-text { position: relative; max-width: 250px; }
+#como-trabalhamos .tl-item:nth-child(odd) .tl-text { grid-row: 1; align-self: end; padding-bottom: 28px; }
+#como-trabalhamos .tl-item:nth-child(even) .tl-text { grid-row: 3; align-self: start; padding-top: 28px; }
+#como-trabalhamos .tl-text h3 { font-size: 21px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+#como-trabalhamos .tl-text p { margin-top: 10px; font-size: 15px; line-height: 1.65; color: #a9bdd6; }
+/* haste que liga o texto ao ponto */
+#como-trabalhamos .tl-text::after { content: ''; position: absolute; left: 50%; width: 1px; background: rgba(255, 255, 255, 0.28); transform-origin: 50% 0; }
+#como-trabalhamos .tl-item:nth-child(odd) .tl-text::after { bottom: 0; height: 24px; transform-origin: 50% 100%; }
+#como-trabalhamos .tl-item:nth-child(even) .tl-text::after { top: 0; height: 24px; }
+
+/* etapa por etapa: um de cada vez (a classe .pdca-run é colocada pelo tema.js quando a linha do tempo entra na tela) */
+.pdca-pre .tl-text, .pdca-pre .tl-node { opacity: 0; }
+.pdca-pre .tl-item:nth-child(odd) .tl-text { transform: translateY(26px); }
+.pdca-pre .tl-item:nth-child(even) .tl-text { transform: translateY(-26px); }
+.pdca-pre .tl-node { transform: scale(0.6); }
+.pdca-run::after { animation: tl-linha 4.8s linear forwards; }
+@keyframes tl-linha { to { transform: scaleX(1); } }
+.pdca-run .tl-node, .pdca-run .tl-text { transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s, border-color 0.5s, color 0.5s; opacity: 1; transform: none; }
+.pdca-run .tl-item:nth-child(1) > * { transition-delay: 0.2s; }
+.pdca-run .tl-item:nth-child(2) > * { transition-delay: 1.5s; }
+.pdca-run .tl-item:nth-child(3) > * { transition-delay: 2.8s; }
+.pdca-run .tl-item:nth-child(4) > * { transition-delay: 4.1s; }
+#como-trabalhamos .pdca-run .tl-node { background: var(--primary); border-color: var(--primary-light); color: #fff; }
+#como-trabalhamos .process-note {
+  margin-top: 56px; padding: 24px 0 0; border: 0; border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: none; box-shadow: none; border-radius: 0; color: #a9bdd6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdca-pre .tl-text, .pdca-pre .tl-node { opacity: 1; transform: none; }
+  .pdca-run::after { animation: none; transform: scaleX(1); }
+}
+
+/* celular / tablet estreito: linha do tempo vertical, também uma etapa por vez */
+@media (max-width: 900px) {
+  #como-trabalhamos .pdca-tl { display: block; margin-top: 44px; padding-left: 28px; }
+  #como-trabalhamos .pdca-tl::before, #como-trabalhamos .pdca-tl::after { position: absolute; left: 19px; top: 20px; bottom: 20px; width: 2px; height: auto; }
+  #como-trabalhamos .pdca-tl::after { transform: scaleY(0); transform-origin: 50% 0; }
+  .pdca-run::after { animation-name: tl-linha-v; }
+  @keyframes tl-linha-v { to { transform: scaleY(1); } }
+  #como-trabalhamos .tl-item { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 20px; align-items: flex-start; text-align: left; padding: 0 0 34px; }
+  #como-trabalhamos .tl-item:last-child { padding-bottom: 0; }
+  #como-trabalhamos .tl-node { margin-left: -28px; flex-shrink: 0; }
+  #como-trabalhamos .tl-text, #como-trabalhamos .tl-item:nth-child(odd) .tl-text, #como-trabalhamos .tl-item:nth-child(even) .tl-text { padding: 6px 0 0; max-width: none; }
+  #como-trabalhamos .tl-text::after { display: none; }
+  .pdca-pre .tl-item:nth-child(odd) .tl-text, .pdca-pre .tl-item:nth-child(even) .tl-text { transform: translateY(18px); }
+}
+
+/* PDCA: título centralizado */
+#como-trabalhamos > .wrap > .eyebrow, #como-trabalhamos > .wrap > h2 { text-align: center; }
+#como-trabalhamos > .wrap > .eyebrow { justify-content: center; }
+#como-trabalhamos > .wrap > h2 { white-space: nowrap; font-size: clamp(22px, 5.4vw, 38px); }
+
+/* Portfólio: base também arredondada (a Gestão interna que vem depois é uma tela normal) */
+#projetos { border-radius: var(--raio-card); border-bottom-width: 1px; margin-bottom: var(--gap-card); box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2), 0 22px 50px rgba(4, 21, 43, 0.2); }
+
+/* Portfólio: gradiente em movimento (fundo maior que o elemento, posição desliza), em tons de azul-marinho */
+#projetos {
+  background: linear-gradient(120deg, #04152b, #0a2a54, #134a94, #0a2a54, #04152b);
+  background-size: 300% 300%;
+  animation: grad-azul 9s ease infinite;
+}
+@keyframes grad-azul { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@media (prefers-reduced-motion: reduce) { #projetos { animation: none; } }
+
+/* Portfólio: card menos alto */
+#projetos { padding-top: 76px; padding-bottom: 64px; }
+@media (max-width: 640px) { #projetos { padding-top: 60px; padding-bottom: 44px; } }
+
+/* PDCA: os 4 textos ficam ACIMA da linha (card mais baixo) */
+@media (min-width: 901px) {
+  #como-trabalhamos .pdca-tl { grid-template-rows: auto 48px; margin-top: 48px; }
+  #como-trabalhamos .tl-item { grid-row: 1 / 3; }
+  #como-trabalhamos .tl-item:nth-child(even) .tl-text { grid-row: 1; align-self: end; padding: 0 0 28px; }
+  #como-trabalhamos .tl-item:nth-child(even) .tl-text::after { top: auto; bottom: 0; transform-origin: 50% 100%; }
+  .pdca-pre .tl-item:nth-child(even) .tl-text { transform: translateY(26px); }
+  #como-trabalhamos .process-note { margin-top: 40px; }
+}
+#como-trabalhamos { padding-top: 76px; padding-bottom: 96px; }
+@media (max-width: 900px) { #como-trabalhamos { padding-top: 60px; } }
+
+/* PDCA: altura intermediária */
+#como-trabalhamos { padding-top: 100px; padding-bottom: 128px; }
+@media (min-width: 901px) {
+  #como-trabalhamos .pdca-tl { grid-template-rows: auto 56px; margin-top: 64px; }
+  #como-trabalhamos .process-note { margin-top: 56px; }
+}
+@media (max-width: 900px) { #como-trabalhamos { padding-top: 72px; padding-bottom: 100px; } }
+
+/* Sobre: tela normal, sem cartão nem efeito de chegada (fundo original) */
+html #sobre {
+  margin: 0; z-index: auto; border: 0; border-radius: 0; box-shadow: none;
+  background-color: transparent; padding-bottom: 100px;
+  border-top: 1px solid var(--line);
+}
+#sobre::before { display: none; }
+@media (max-width: 640px) { #sobre { margin: 0; padding-bottom: 72px; } }
+
+/* PDCA: base arredondada, já que o Sobre não chega por cima */
+#como-trabalhamos { border-radius: var(--raio-card); border-bottom-width: 1px; margin-bottom: var(--gap-card); box-shadow: 0 -14px 44px rgba(11, 37, 80, 0.2), 0 22px 50px rgba(4, 21, 43, 0.2); }
+
+/* Portfólio: sem gradiente em movimento, volta ao azul-marinho fixo */
+#projetos { background: #071f3d; animation: none; }
+
+/* Bloco "Gestão interna" (em Serviços): mesmo azul-marinho do fundo do Portfólio */
+.g-block-int { background: #071f3d; border: 1px solid rgba(120, 170, 255, 0.2); }
+
+/* Bloco "Gestão externa": o azul vivo que era do bloco interno */
+html .g-block-ext {
+  color: #fff;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+    linear-gradient(160deg, #2479ec, #1559c8 75%);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+html .g-block-ext .g-block-sub { color: #dceaff; }
+html .g-block-ext .gb-ic { background: rgba(255, 255, 255, 0.16); color: #fff; }
+html .g-block-ext .gb-list li + li { border-top-color: rgba(255, 255, 255, 0.18); }
+
+/* Menu flutuante ao rolar (computador) */
+@media (min-width: 901px) {
+  .site-header.nav-flutua .nav-links {
+    position: fixed; top: 14px; left: 50%; translate: -50% 0; z-index: 80;
+    animation: nav-desce 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    box-shadow: 0 12px 34px rgba(11, 37, 80, 0.2);
+  }
+  .site-header.nav-flutua .nav-links { background: rgba(255, 255, 255, 0.88); border-color: rgba(23, 80, 160, 0.14); }
+  .site-header.nav-flutua .nav-links a { color: #4d6482; }
+  .site-header.nav-flutua .nav-links a:hover, .site-header.nav-flutua .nav-links a.is-active, .site-header.nav-flutua .nav-links a.is-current { color: #0f55b8; }
+}
+@keyframes nav-desce { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }

@@ -1,7 +1,6 @@
 (function () {
   var html = document.documentElement;
   var link = document.getElementById('tema-claro');
-  var btn = document.getElementById('tema-toggle');
   var LOGO = { claro: 'assets/img/logo-aldem-principal.png', escuro: 'assets/img/logo-aldem.png' };
 
   var header = document.querySelector('.site-header');
@@ -22,14 +21,30 @@
     html.dataset.tema = t;
     link.disabled = (t === 'escuro');
     marcarCabecalho();
-    if (btn) btn.setAttribute('aria-label', t === 'escuro' ? 'Mudar para o tema claro' : 'Mudar para o tema escuro');
   }
 
-  aplicar(html.dataset.tema === 'escuro' ? 'escuro' : 'claro');
+  aplicar('claro');
 
-  if (btn) btn.addEventListener('click', function () {
-    var novo = html.dataset.tema === 'escuro' ? 'claro' : 'escuro';
-    aplicar(novo);
-    try { localStorage.setItem('aldem-tema', novo); } catch (e) {}
-  });
+})();
+
+/* Método PDCA: a linha do tempo se desenha e as etapas 1, 2, 3 e 4 aparecem uma de cada vez */
+(function () {
+  var tl = document.querySelector('.pdca-tl');
+  if (!tl) return;
+  if (!('IntersectionObserver' in window)) return;
+  tl.classList.add('pdca-pre');
+  var io = new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting) { tl.classList.remove('pdca-pre'); tl.classList.add('pdca-run'); io.disconnect(); }
+  }, { threshold: 0.45 });
+  io.observe(tl);
+})();
+
+/* Menu (Início, Serviços…) flutua no topo quando a página desce */
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function checar() { header.classList.toggle('nav-flutua', window.scrollY > header.offsetHeight - 30); }
+  addEventListener('scroll', checar, { passive: true });
+  addEventListener('resize', checar);
+  checar();
 })();

@@ -55,6 +55,17 @@
     window.addEventListener('scroll', pedir, { passive: true });
     window.addEventListener('resize', pedir);
     atualizarBlocos();
+
+    // Link "Serviços": no computador, leva direto ao ponto em que os dois blocos já estão encaixados
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href="#servicos"]');
+      if (!a || !desktop.matches) return;
+      ev.preventDefault();
+      var topo = trilho.getBoundingClientRect().top + window.scrollY;
+      var percurso = trilho.offsetHeight - window.innerHeight;
+      window.scrollTo({ top: topo + percurso * 0.62, behavior: reduz ? 'auto' : 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', '#servicos');
+    });
   }
 
   /* =====================================================================
