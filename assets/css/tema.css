@@ -73,3 +73,6 @@ html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
 
 /* Sem o degradê atrás do cabeçalho, em todas as telas */
 .site-header::before, .site-header.is-scrolled::before, .site-header.sobre-escuro::before { background: none; }
+
+/* Cabeçalho (logo, menu, botões, WhatsApp) rola junto com a página, sem ficar preso no topo */
+.site-header { position: relative; }
