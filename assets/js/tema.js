@@ -1,7 +1,9 @@
 (function () {
   var html = document.documentElement;
   var link = document.getElementById('tema-claro');
-  var LOGO = { claro: 'assets/img/logo-aldem-principal.png', escuro: 'assets/img/logo-aldem.png' };
+  // caminho das imagens relativo a este script (funciona também nas páginas de cidade, em subpastas)
+  var IMG = document.currentScript && document.currentScript.src ? new URL('../img/', document.currentScript.src).href : 'assets/img/';
+  var LOGO = { claro: IMG + 'logo-aldem-principal.png', escuro: IMG + 'logo-aldem.png' };
 
   var header = document.querySelector('.site-header');
   var faixas = document.querySelectorAll('#projetos, #como-trabalhamos, .site-footer');

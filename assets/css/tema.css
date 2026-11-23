@@ -443,3 +443,6 @@ html .g-block-ext .gb-list li + li { border-top-color: rgba(255, 255, 255, 0.18)
 @media (max-width: 640px) {
   #como-trabalhamos > .wrap > h2 { white-space: normal; font-size: 28px; line-height: 1.2; }
 }
+
+/* Primeira tela: sem a luz azul que segue o mouse */
+.hero-light { display: none !important; }
