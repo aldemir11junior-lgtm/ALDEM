@@ -62,3 +62,11 @@ html[data-tema="escuro"] { --faixa: rgba(43, 140, 255, 0.12); }
 #projetos .pf-shot { background: #0a2a54; }
 #como-trabalhamos .step:not(.on) h3 { color: #6f87a8; }
 #como-trabalhamos [data-fill] .fw { color: rgba(255, 255, 255, 0.22); }
+
+/* Cabeçalho sobre as faixas azul-marinho (tema claro): visual escuro */
+.site-header.sobre-escuro::before { background: linear-gradient(180deg, rgba(4, 21, 43, 0.97) 0%, rgba(4, 21, 43, 0.88) 62%, rgba(4, 21, 43, 0) 100%); }
+.site-header.sobre-escuro .nav-links { background: rgba(10, 42, 84, 0.6); border-color: rgba(120, 170, 255, 0.2); box-shadow: none; }
+.site-header.sobre-escuro .nav-links a { color: #a9bdd6; }
+.site-header.sobre-escuro .nav-links a:hover, .site-header.sobre-escuro .nav-links a.is-active, .site-header.sobre-escuro .nav-links a.is-current { color: #fff; }
+.site-header.sobre-escuro .nav-pill { background: rgba(43, 140, 255, 0.22); box-shadow: inset 0 0 0 1px rgba(140, 200, 255, 0.35); }
+.site-header.sobre-escuro .tema-toggle { color: #fff; }
