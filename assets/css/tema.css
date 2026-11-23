@@ -23,3 +23,7 @@ html[data-tema="escuro"] .tema-sol { display: block; }
 #como-trabalhamos { background: var(--bg-2); border-block: 1px solid var(--line); }
 .dd + .results { padding-top: 100px; }
 .site-footer { background: var(--bg-2); }
+
+/* Faixas um pouco mais escuras (portfólio, PDCA e rodapé) */
+:root { --faixa: color-mix(in srgb, var(--bg-2) 90%, #000); }
+#projetos, #como-trabalhamos, .site-footer { background: var(--faixa); }
