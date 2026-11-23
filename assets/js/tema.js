@@ -51,32 +51,30 @@
   checar();
 })();
 
-/* Formulário de contato: ao enviar, abre o e-mail (Gmail) já escrito com os dados preenchidos, como o botão de e-mail fazia */
+/* Formulário de contato: ao enviar, abre o WhatsApp da Aldem com a mensagem já escrita com os dados preenchidos */
 (function () {
   var form = document.getElementById('form-contato');
   if (!form) return;
   var status = form.querySelector('.cta-status');
-  var EMAIL = 'aldem.gestao@gmail.com';
-  var BR = '\r\n';
+  var NUMERO = '5567996896426';
+  var BR = '\n';
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     var f = form.elements;
     var nome = f.nome.value.trim(), email = f.email.value.trim(), empresa = f.empresa.value.trim(), mensagem = f.mensagem.value.trim();
-    var corpo = 'Olá, equipe Aldem!' + BR + BR +
-      'Nome: ' + nome + BR +
-      'E-mail: ' + (email || '-') + BR +
-      'Empresa: ' + (empresa || '-') + BR + BR +
-      'Mensagem:' + BR + mensagem;
-    var url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) +
-      '&su=' + encodeURIComponent('Contato pelo site: ' + nome + (empresa ? ' (' + empresa + ')' : '')) +
-      '&body=' + encodeURIComponent(corpo);
+    var texto = 'Olá, equipe Aldem! Vim pelo site.' + BR + BR +
+      '*Nome:* ' + nome + BR +
+      '*E-mail:* ' + (email || '-') + BR +
+      '*Empresa:* ' + (empresa || '-') + BR + BR +
+      '*Mensagem:*' + BR + mensagem;
+    var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(texto);
     var w = window.open(url, '_blank', 'noopener');
     status.className = 'cta-status ok';
     if (w) {
-      status.textContent = 'Abrimos o seu e-mail com a mensagem pronta. É só clicar em Enviar por lá.';
+      status.textContent = 'Abrimos o WhatsApp com a sua mensagem pronta. É só tocar em Enviar por lá.';
     } else {
-      status.innerHTML = 'Seu navegador bloqueou a janela. <a href="' + url + '" target="_blank" rel="noopener noreferrer">Clique aqui para abrir o e-mail</a>.';
+      status.innerHTML = 'Seu navegador bloqueou a janela. <a href="' + url + '" target="_blank" rel="noopener noreferrer">Clique aqui para abrir o WhatsApp</a>.';
     }
   });
 })();
