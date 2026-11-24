@@ -221,8 +221,8 @@ def pagina_home(c):
     # rodapé: sem o link para a lista de cidades
     h = re.sub(r' · <a href="criacao-de-sites/">[^<]*</a>', '', h)
     # título, descrição e endereço da página
-    titulo = 'Criação de Sites em %s | Aldem Gestão Estratégica' % nome
-    desc = 'Criação de sites e landing pages, aplicativos e painéis de indicadores para empresas de %s-%s. Atendimento online, orçamento pelo WhatsApp. Aldem Gestão Estratégica.' % (nome, uf)
+    titulo = 'Criar Site em %s %s | Aldem Gestão Estratégica' % (nome, uf)
+    desc = 'Criação de sites e landing pages, dashboards e análise de dados para empresas de %s-%s. Aldem Gestão Estratégica.' % (nome, uf)
     h = re.sub(r'<title>.*?</title>', '<title>%s</title>' % e(titulo), h, 1, re.S)
     h = re.sub(r'<meta name="description" content="[^"]*" />', '<meta name="description" content="%s" />' % e(desc), h, 1)
     h = re.sub(r'<meta property="og:title" content="[^"]*" />', '<meta property="og:title" content="%s" />' % e(titulo), h, 1)
